@@ -11,9 +11,11 @@
 #ifndef HORIZONTALMOVETILE_H_INCLUDED
 #define HORIZONTALMOVETILE_H_INCLUDED
 
+#include "NumberTile.h"
+
 using namespace std;
 
-class HorizontalMoveTile
+class HorizontalMoveTile : public NumberTile
 {
 public:
 
@@ -24,76 +26,27 @@ public:
     */
     HorizontalMoveTile(int x, int y, int value);
 
-    /**
-        Description
-
-        @params
-    */
-    void setValue(int value);
 
     /**
         Description
 
         @params
     */
-    int getValue();
-
-    /**
-        Description
-
-        @params
-    */
-    void setX(int x);
-
-    /**
-        Description
-
-        @params
-    */
-    int getX();
-
-    /**
-        Description
-
-        @params
-    */
-    void setY(int y);
-
-    /**
-        Description
-
-        @params
-    */
-    int getY();
-
-    /**
-        Description
-
-        @params
-    */
-    string getTileType();
-
-    /**
-        Description
-
-        @params
-    */
-    virtual bool canMoveHorizontal();
+    bool canMoveHorizontal() const;
 
     /**
         Description
 
         @returns
     */
-    virtual bool canMoveVertical();
+    bool canMoveVertical() const;
 
     /**
-        Attempt to merge this tile into the given tile and return a bool indicating if this was successful
+        Description
 
-        @params t- The NumberTile to merge into
-        @returns mergeSuccessful- value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t
+        @params
     */
-    virtual bool mergeWithTile(NumberTile t);
+    string getCombinedTileType(NumberTile* t) const;
 };
 
 #endif // HORIZONTALMOVETILE_H_INCLUDED

@@ -15,3 +15,26 @@
 
 using namespace std;
 
+HorizontalMoveTile::HorizontalMoveTile(int x, int y, int value)
+    :NumberTile(x, y, value)
+{
+    setTileType("HorizontalMoveTile");
+}
+
+
+bool HorizontalMoveTile::canMoveHorizontal() const
+{
+
+}
+
+
+bool HorizontalMoveTile::canMoveVertical() const
+{
+
+}
+
+
+string HorizontalMoveTile::getCombinedTileType(NumberTile* t) const
+{
+
+}

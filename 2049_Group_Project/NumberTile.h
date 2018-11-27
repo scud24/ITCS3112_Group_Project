@@ -14,21 +14,34 @@ using namespace std;
 
 class NumberTile
 {
+protected:
+int value;
+int x;
+int y;
+string type;
+
 public:
+    /**
+        Description
+
+        @params
+    */
+    NumberTile();
+
 
     /**
         Description
 
         @params
     */
-    NumberTile(int x, int y, int value);
+    NumberTile(int xpos, int ypos, int tileValue);
 
     /**
         Description
 
         @params
     */
-    void setValue(int value);
+    void setValue(int newValue);
 
     /**
         Description
@@ -42,7 +55,7 @@ public:
 
         @params
     */
-    void setX(int x);
+    void setX(int newX);
 
     /**
         Description
@@ -56,7 +69,7 @@ public:
 
         @params
     */
-    void setY(int y);
+    void setY(int newY);
 
     /**
         Description
@@ -65,6 +78,12 @@ public:
     */
     int getY();
 
+    /**
+        Description
+
+        @params
+    */
+    void setTileType(string newType);
 
     /**
         Description
@@ -78,14 +97,14 @@ public:
 
         @params
     */
-    virtual bool canMoveHorizontal();
+    virtual bool canMoveHorizontal() const = 0;
 
     /**
         Description
 
         @returns
     */
-    virtual bool canMoveVertical();
+    virtual bool canMoveVertical() const = 0;
 
     /**
         Attempt to merge this tile into the given tile and return a bool indicating if this was successful
@@ -93,7 +112,23 @@ public:
         @params t- The NumberTile to merge into
         @returns mergeSuccessful- value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t
     */
-    virtual bool mergeWithTile(NumberTile t);
+    bool canMergeWithTile(NumberTile* t);
+
+
+    /**
+        Description
+
+        @params
+    */
+    virtual string getCombinedTileType(NumberTile* t) const = 0;
+
+
+    /**
+        Description
+
+        @params
+    */
+    string to_string();
 };
 
 #endif // NUMBERTILE_H_INCLUDED

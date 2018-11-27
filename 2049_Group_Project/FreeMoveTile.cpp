@@ -14,3 +14,26 @@
 
 using namespace std;
 
+
+FreeMoveTile::FreeMoveTile(int x, int y, int value)
+    :NumberTile(x, y, value)
+{
+    setTileType("FreeMoveTile");
+}
+
+
+bool FreeMoveTile::canMoveHorizontal() const
+{
+
+}
+
+
+bool FreeMoveTile::canMoveVertical() const
+{
+
+}
+
+string FreeMoveTile::getCombinedTileType(NumberTile* t) const
+{
+
+}

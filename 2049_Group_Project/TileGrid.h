@@ -11,11 +11,20 @@
 #define TILEGRID_H_INCLUDED
 
 #include "NumberTile.h"
+#include "FreeMoveTile.h"
+#include "HorizontalMoveTile.h"
+#include "VerticalMoveTile.h"
 
 using namespace std;
 
 class TileGrid
 {
+protected:
+int width;
+int height;
+int activeTiles;
+NumberTile** tg;
+
 public:
 
     /**
@@ -40,7 +49,7 @@ public:
 
         @params
     */
-    void addTile(NumberTile t);
+    void addTile(NumberTile* t);
 
     /**
         Description
@@ -55,6 +64,13 @@ public:
         @params
     */
     void moveTilesVertical(int dir);
+
+    /**
+        Description
+
+        @params
+    */
+    int getNumActiveTiles();
 };
 
 #endif // TILEGRID_H_INCLUDED
