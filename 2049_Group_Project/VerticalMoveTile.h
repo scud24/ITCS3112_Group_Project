@@ -48,6 +48,13 @@ public:
         @params
     */
     string getCombinedTileType(NumberTile* t) const;
+
+    /**
+        Description
+
+        @params
+    */
+    string getConsoleIcon();
 };
 
 #endif // VERTICALMOVETILE_H_INCLUDED

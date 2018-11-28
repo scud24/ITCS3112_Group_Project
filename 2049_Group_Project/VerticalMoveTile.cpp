@@ -23,17 +23,26 @@ VerticalMoveTile::VerticalMoveTile(int x, int y, int value)
 
 bool VerticalMoveTile::canMoveHorizontal() const
 {
-
+    return false;
 }
 
 
 bool VerticalMoveTile::canMoveVertical() const
 {
-
+    return true;
 }
 
 
 string VerticalMoveTile::getCombinedTileType(NumberTile* t) const
 {
+    if(t->getTileType() == "VerticalMoveTile")
+    {
+        return "VerticalMoveTile";
+    }
+    return "FreeMoveTile";
+}
 
+string VerticalMoveTile::getConsoleIcon()
+{
+    return "^" + std::to_string(value) + "v";
 }

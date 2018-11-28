@@ -47,6 +47,13 @@ public:
         @params
     */
     string getCombinedTileType(NumberTile* t) const;
+
+    /**
+        Description
+
+        @params
+    */
+    string getConsoleIcon();
 };
 
 #endif // HORIZONTALMOVETILE_H_INCLUDED

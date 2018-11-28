@@ -45,6 +45,13 @@ public:
         @params
     */
     string getCombinedTileType(NumberTile* t) const;
+
+    /**
+        Description
+
+        @params
+    */
+    string getConsoleIcon();
 };
 
 #endif // FREEMOVETILE_H_INCLUDED

@@ -24,17 +24,26 @@ HorizontalMoveTile::HorizontalMoveTile(int x, int y, int value)
 
 bool HorizontalMoveTile::canMoveHorizontal() const
 {
-
+    return true;
 }
 
 
 bool HorizontalMoveTile::canMoveVertical() const
 {
-
+    return false;
 }
 
 
 string HorizontalMoveTile::getCombinedTileType(NumberTile* t) const
 {
+    if(t->getTileType() == "HorizontalMoveTile")
+    {
+        return "HorizontalMoveTile";
+    }
+    return "FreeMoveTile";
+}
 
+string HorizontalMoveTile::getConsoleIcon()
+{
+    return "<" + std::to_string(value) + ">";
 }

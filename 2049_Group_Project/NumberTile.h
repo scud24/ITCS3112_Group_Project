@@ -129,6 +129,13 @@ public:
         @params
     */
     string to_string();
+
+    /**
+        Description
+
+        @params
+    */
+    string getConsoleIcon();
 };
 
 #endif // NUMBERTILE_H_INCLUDED

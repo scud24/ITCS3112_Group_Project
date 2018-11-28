@@ -24,16 +24,21 @@ FreeMoveTile::FreeMoveTile(int x, int y, int value)
 
 bool FreeMoveTile::canMoveHorizontal() const
 {
-
+    return true;
 }
 
 
 bool FreeMoveTile::canMoveVertical() const
 {
-
+    return true;
 }
 
 string FreeMoveTile::getCombinedTileType(NumberTile* t) const
 {
+    return "FreeMoveTile";
+}
 
+string FreeMoveTile::getConsoleIcon()
+{
+    return "[" + std::to_string(value) + "]";
 }

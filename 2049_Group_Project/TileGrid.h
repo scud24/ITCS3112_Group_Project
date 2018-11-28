@@ -35,9 +35,14 @@ public:
     TileGrid(int w, int h);
 
     /**
-        Prints a text representation of the game board to the console
+        Prints a symbolic representation of the game board to the console
     */
     void drawGrid();
+
+    /**
+        Lists all active tiles in the console
+    */
+    void listActiveTiles();
 
     /**
         Clears the grid's list of current tile
@@ -71,6 +76,38 @@ public:
         @params
     */
     int getNumActiveTiles();
+
+
+    /**
+        Description
+
+        @params
+    */
+    NumberTile* getTileAtLocation(int x, int y);
+
+
+    /**
+        Description
+
+        @params
+    */
+    int getTileIndexByLocation(int x, int y);
+
+
+    /**
+        Description
+
+        @params
+    */
+    NumberTile* combineTiles(NumberTile* a, NumberTile* b);
+
+
+    /**
+        Description
+
+        @params
+    */
+    void removeTileAtIndex(int index);
 };
 
 #endif // TILEGRID_H_INCLUDED

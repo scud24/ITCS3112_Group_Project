@@ -81,3 +81,8 @@ string NumberTile::to_string()
 {
     return type + "(" + std::to_string(x) + "," + std::to_string(y) + "): " + std::to_string(value);
 }
+
+string NumberTile::getConsoleIcon()
+{
+    return "#" + std::to_string(value) + "#";
+}
