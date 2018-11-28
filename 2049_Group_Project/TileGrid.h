@@ -3,7 +3,7 @@
     TileGrid.h
     Purpose: Holds prototype declarations for TileGrid.cpp
 
-    @author Nathan Holxworth
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
     @version 1.0 11/27/18
 */
 

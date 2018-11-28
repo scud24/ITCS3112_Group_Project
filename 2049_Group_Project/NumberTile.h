@@ -22,87 +22,110 @@ string type;
 
 public:
     /**
-        Description
-
-        @params
+        Create empty tile
+        
+        @params 
+        
+        @return 
     */
     NumberTile();
 
 
     /**
-        Description
-
-        @params
+        Create number tile
+        
+        @params xpos, ypos, tileValue
+        
+        @return true
     */
     NumberTile(int xpos, int ypos, int tileValue);
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     void setValue(int newValue);
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     int getValue();
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     void setX(int newX);
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     int getX();
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     void setY(int newY);
 
-    /**
-        Description
-
-        @params
+     /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     int getY();
 
-    /**
-        Description
-
-        @params
+     /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     void setTileType(string newType);
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     string getTileType();
 
-    /**
-        Description
-
-        @params
+   /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     virtual bool canMoveHorizontal() const = 0;
-
-    /**
-        Description
-
-        @returns
+ /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     virtual bool canMoveVertical() const = 0;
 
@@ -115,25 +138,30 @@ public:
     bool canMergeWithTile(NumberTile* t);
 
 
-    /**
-        Description
-
-        @params
+     /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     virtual string getCombinedTileType(NumberTile* t) const = 0;
 
-
-    /**
-        Description
-
-        @params
+     /**
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     string to_string();
 
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     string getConsoleIcon();
 };

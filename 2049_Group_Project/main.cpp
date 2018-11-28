@@ -1,3 +1,11 @@
+/**
+    ITSC 3112-001 Group Project
+    FreeMoveTile.h
+    Purpose: Holds prototype declarations for FreeMoveTile.cpp
+
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
+    @version 1.0 11/27/18
+*/
 #include <iostream>
 
 

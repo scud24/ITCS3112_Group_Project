@@ -20,38 +20,48 @@ class HorizontalMoveTile : public NumberTile
 public:
 
     /**
-        Description
+       Create tile that can only move horizontally
 
-        @params
+        @params x, y, value
+        
+        @return 
     */
     HorizontalMoveTile(int x, int y, int value);
 
-
     /**
-        Description
-
-        @params
+        Determine if tile can move horizontally 
+        
+        @params 
+        
+        @return true
     */
     bool canMoveHorizontal() const;
 
     /**
-        Description
+        Determine if tile can move vertically
 
-        @returns
+        @return true
     */
     bool canMoveVertical() const;
 
     /**
-        Description
-
-        @params
-    */
+    
+    * Get the tile type
+    *
+    * @param Numbertile
+    
+    * @return tile type
+    * 
+    * */
+    
     string getCombinedTileType(NumberTile* t) const;
 
     /**
-        Description
-
-        @params
+        Get output icon
+        
+        @params 
+        
+        @return value
     */
     string getConsoleIcon();
 };

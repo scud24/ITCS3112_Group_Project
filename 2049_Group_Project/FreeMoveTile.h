@@ -3,7 +3,7 @@
     FreeMoveTile.h
     Purpose: Holds prototype declarations for FreeMoveTile.cpp
 
-    @author Nathan Holxworth
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
     @version 1.0 11/27/18
 */
 
@@ -19,37 +19,52 @@ class FreeMoveTile : public NumberTile
 public:
 
     /**
-        Description
-
-        @params
+    
+    * Create a tile that can move freely
+    *
+    * @param x, y, value
+    
+    * @return none
     */
     FreeMoveTile(int x, int y, int value);
 
     /**
-        Description
-
-        @params
+    
+    * Determine if tile can move horizontally
+    *
+    * @param 
+    
+    * @return true
     */
     bool canMoveHorizontal() const;
 
     /**
-        Description
-
-        @returns
+    
+    * Determine if tile can move vertically
+    *
+    * @param 
+    
+    * @return true
     */
     bool canMoveVertical() const;
 
-    /**
-        Description
-
-        @params
+     /**
+    
+    * Get tile type
+    *
+    * @param 
+    
+    * @return FreeMoveTile
     */
     string getCombinedTileType(NumberTile* t) const;
 
     /**
-        Description
-
-        @params
+    
+    * Get output icon
+    *
+    * @param 
+    
+    * @return value
     */
     string getConsoleIcon();
 };
