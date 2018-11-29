@@ -122,7 +122,7 @@ public:
     /**
         Gets the combined new Tile type Vertical or Horizontal.
 
-        @param none
+        @param t The Tile
         @return String denoting the Tile type.
     */
     virtual string getCombinedTileType(NumberTile* t) const = 0;

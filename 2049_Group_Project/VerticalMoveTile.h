@@ -11,6 +11,7 @@
 #ifndef VERTICALMOVETILE_H_INCLUDED
 #define VERTICALMOVETILE_H_INCLUDED
 
+// Include required header files
 #include "NumberTile.h"
 
 using namespace std;
@@ -20,39 +21,45 @@ class VerticalMoveTile : public NumberTile
 public:
 
     /**
-        Description
+        Constructor: Gives Tile the coordinates on grid and value to hold.
 
-        @params
+        @param x cordinate value on grid.
+        @param y cordinate value on grid.
+        @param value the number Tile should hold.
     */
     VerticalMoveTile(int x, int y, int value);
 
 
 
     /**
-        Description
+        Decide wether Tile can be moved Horizontally.
 
-        @params
+        @param none
+        @return True or False for the move.
     */
     bool canMoveHorizontal() const;
 
     /**
-        Description
+        Decide wether Tile can be moved Vertically.
 
-        @returns
+        @param none
+        @return True or False for the move.
     */
     bool canMoveVertical() const;
 
     /**
-        Description
+        Gets the Tile type Vertical or Horizontal.
 
-        @params
+        @param t The Tile
+        @return String denoting the Tile type.
     */
     string getCombinedTileType(NumberTile* t) const;
 
     /**
-        Description
+        Gets the Tile icons textual representation.
 
-        @params
+        @param none
+        @return String denoting the Tile type.
     */
     string getConsoleIcon();
 };
