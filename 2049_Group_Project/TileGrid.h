@@ -3,13 +3,14 @@
     TileGrid.h
     Purpose: Holds prototype declarations for TileGrid.cpp
 
-    @author Nathan Holxworth
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
     @version 1.0 11/27/18
 */
 
 #ifndef TILEGRID_H_INCLUDED
 #define TILEGRID_H_INCLUDED
 
+// Include required header files
 #include "NumberTile.h"
 #include "FreeMoveTile.h"
 #include "HorizontalMoveTile.h"
@@ -19,6 +20,8 @@ using namespace std;
 
 class TileGrid
 {
+    
+// Declare Fields
 protected:
 int width;
 int height;
@@ -28,84 +31,97 @@ NumberTile** tg;
 public:
 
     /**
-        Description
+        Constructor: Creates grid based on the dimensions.
 
-        @params
+        @param w Width of the grid.
+        @param h Height of the grid.
     */
     TileGrid(int w, int h);
 
     /**
-        Prints a symbolic representation of the game board to the console
+        Prints a symbolic representation of the game board to the console.
+        
+        @param none
     */
     void drawGrid();
 
     /**
-        Lists all active tiles in the console
+        Lists all active tiles in the console.
+        
+        @param none
     */
     void listActiveTiles();
 
     /**
-        Clears the grid's list of current tile
+        Clears the grid's list of current tile.
+        
+        @param none
     */
     void clearTiles();
 
     /**
-        Description
+        Adds Tile to the grid.
 
-        @params
+        @param t The new tile to be added.
     */
     void addTile(NumberTile* t);
 
     /**
-        Description
+        Moves Tile horizontally.
 
-        @params
+        @param dir The distance to move the Tile.
     */
     void moveTilesHorzontal(int dir);
 
     /**
-        Description
+        Moves Tile Vertically.
 
-        @params
+        @param dir The distance to move the Tile.
     */
     void moveTilesVertical(int dir);
 
     /**
-        Description
+        Gets the total number of active tiles on console.
 
-        @params
+        @param none
+        @return The total number of Tiles.
     */
     int getNumActiveTiles();
 
 
     /**
-        Description
+        Gets Tile in grid.
 
-        @params
+        @param x The coordinate.
+        @param y The coordinate.
+        @return The requested Tile.
     */
     NumberTile* getTileAtLocation(int x, int y);
 
 
     /**
-        Description
+        Gets Tile's index in grid.
 
-        @params
+        @param x The coordinate.
+        @param y The coordinate.
+        @return The requested Tile index.
     */
     int getTileIndexByLocation(int x, int y);
 
 
     /**
-        Description
+        Combines Tiles together.
 
-        @params
+        @param a First tile.
+        @param b Second tile.
     */
     NumberTile* combineTiles(NumberTile* a, NumberTile* b);
 
 
     /**
-        Description
+        Removes tile from grid
 
-        @params
+        @param index The tile's index on grid
     */
     void removeTileAtIndex(int index);
 };

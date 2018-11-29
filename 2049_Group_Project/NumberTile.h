@@ -3,7 +3,7 @@
     NumberTile.h
     Purpose: Holds prototype declarations for NumberTile.cpp
 
-    @author Nathan Holxworth
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
     @version 1.0 11/27/18
 */
 
@@ -14,6 +14,7 @@ using namespace std;
 
 class NumberTile
 {
+// Declare fields
 protected:
 int value;
 int x;
@@ -22,118 +23,123 @@ string type;
 
 public:
     /**
-        Description
+        Constructor: Create empty tile.
 
-        @params
     */
     NumberTile();
 
 
     /**
-        Description
+        Constructor: Creates number tile based on a value.
+        
+        @param xpos X coordinate on grid.
+        @param ypos Y coordinate on grid.
+        @ param tileValue Value of the tile
 
-        @params
     */
     NumberTile(int xpos, int ypos, int tileValue);
 
     /**
-        Description
+        Sets the value of Tile.
+        
+        @param newValue Value to be assigned.
 
-        @params
     */
     void setValue(int newValue);
 
     /**
-        Description
-
-        @params
+        Gets the value of Tile.
+        
+        @param none 
+        @return Value of the Tile
     */
     int getValue();
 
     /**
-        Description
-
-        @params
+        Set X coordinate of tile.
+        
+        @param newX Value of coordinate. 
     */
     void setX(int newX);
 
     /**
-        Description
-
-        @params
+        Get X coordinate of tile.
+        
+        @return x coordinate value. 
     */
     int getX();
 
     /**
-        Description
-
-        @params
+        Set Y coordinate of tile.
+        
+        @param newY Value of coordinate. 
     */
     void setY(int newY);
 
     /**
-        Description
-
-        @params
+        Get Y coordinate of tile.
+        
+        @return y coordinate value. 
     */
     int getY();
 
     /**
-        Description
-
-        @params
+        Set Tile Type.
+        
+        @param newType The Tile type. 
     */
     void setTileType(string newType);
 
     /**
-        Description
-
-        @params
+        Get Tile Type.
+        
+        @return The Tile type. 
     */
     string getTileType();
 
-    /**
-        Description
-
-        @params
+   /**
+        Determine if tile can move horizontally. 
+        
+        @return Decide if move is possible.
     */
     virtual bool canMoveHorizontal() const = 0;
-
-    /**
-        Description
-
-        @returns
+ /**
+        Determine if tile can move vertically. 
+        
+        @return Decide if move is possible
     */
     virtual bool canMoveVertical() const = 0;
 
     /**
-        Attempt to merge this tile into the given tile and return a bool indicating if this was successful
+        Attempts to merge this tile into the given tile and return a bool indicating if this was successful.
 
-        @params t- The NumberTile to merge into
-        @returns mergeSuccessful- value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t
+        @params t The NumberTile to merge into.
+        @returns mergeSuccessful Value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t.
     */
     bool canMergeWithTile(NumberTile* t);
 
 
     /**
-        Description
+        Gets the combined new Tile type Vertical or Horizontal.
 
-        @params
+        @param t The Tile
+        @return String denoting the Tile type.
     */
     virtual string getCombinedTileType(NumberTile* t) const = 0;
 
-
     /**
-        Description
-
-        @params
+        Textual representation of tile.
+        
+        @param none
+        @return Textual representation of tile
     */
     string to_string();
 
     /**
-        Description
+        Gets the Tile icons textual representation.
 
-        @params
+        @param none
+        @return String denoting the Tile type.
     */
     string getConsoleIcon();
 };
