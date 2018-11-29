@@ -3,7 +3,7 @@
     NumberTile.h
     Purpose: Holds prototype declarations for NumberTile.cpp
 
-    @author Nathan Holxworth
+    @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
     @version 1.0 11/27/18
 */
 
@@ -14,6 +14,7 @@ using namespace std;
 
 class NumberTile
 {
+// Declare fields
 protected:
 int value;
 int x;
@@ -22,146 +23,123 @@ string type;
 
 public:
     /**
-        Create empty tile
-        
-        @params 
-        
-        @return 
+        Constructor: Create empty tile.
+
     */
     NumberTile();
 
 
     /**
-        Create number tile
+        Constructor: Creates number tile based on a value.
         
-        @params xpos, ypos, tileValue
-        
-        @return true
+        @param xpos X coordinate on grid.
+        @param ypos Y coordinate on grid.
+        @ param tileValue Value of the tile
+
     */
     NumberTile(int xpos, int ypos, int tileValue);
 
     /**
-        Determine if tile can move horizontally 
+        Sets the value of Tile.
         
-        @params 
-        
-        @return true
+        @param newValue Value to be assigned.
+
     */
     void setValue(int newValue);
 
     /**
-        Determine if tile can move horizontally 
+        Gets the value of Tile.
         
-        @params 
-        
-        @return true
+        @param none 
+        @return Value of the Tile
     */
     int getValue();
 
     /**
-        Determine if tile can move horizontally 
+        Set X coordinate of tile.
         
-        @params 
-        
-        @return true
+        @param newX Value of coordinate. 
     */
     void setX(int newX);
 
     /**
-        Determine if tile can move horizontally 
+        Get X coordinate of tile.
         
-        @params 
-        
-        @return true
+        @return x coordinate value. 
     */
     int getX();
 
     /**
-        Determine if tile can move horizontally 
+        Set Y coordinate of tile.
         
-        @params 
-        
-        @return true
+        @param newY Value of coordinate. 
     */
     void setY(int newY);
 
-     /**
-        Determine if tile can move horizontally 
+    /**
+        Get Y coordinate of tile.
         
-        @params 
-        
-        @return true
+        @return y coordinate value. 
     */
     int getY();
 
-     /**
-        Determine if tile can move horizontally 
+    /**
+        Set Tile Type.
         
-        @params 
-        
-        @return true
+        @param newType The Tile type. 
     */
     void setTileType(string newType);
 
     /**
-        Determine if tile can move horizontally 
+        Get Tile Type.
         
-        @params 
-        
-        @return true
+        @return The Tile type. 
     */
     string getTileType();
 
    /**
-        Determine if tile can move horizontally 
+        Determine if tile can move horizontally. 
         
-        @params 
-        
-        @return true
+        @return Decide if move is possible.
     */
     virtual bool canMoveHorizontal() const = 0;
  /**
-        Determine if tile can move horizontally 
+        Determine if tile can move vertically. 
         
-        @params 
-        
-        @return true
+        @return Decide if move is possible
     */
     virtual bool canMoveVertical() const = 0;
 
     /**
-        Attempt to merge this tile into the given tile and return a bool indicating if this was successful
+        Attempts to merge this tile into the given tile and return a bool indicating if this was successful.
 
-        @params t- The NumberTile to merge into
-        @returns mergeSuccessful- value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t
+        @params t The NumberTile to merge into.
+        @returns mergeSuccessful Value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t.
     */
     bool canMergeWithTile(NumberTile* t);
 
 
-     /**
-        Determine if tile can move horizontally 
-        
-        @params 
-        
-        @return true
+    /**
+        Gets the combined new Tile type Vertical or Horizontal.
+
+        @param none
+        @return String denoting the Tile type.
     */
     virtual string getCombinedTileType(NumberTile* t) const = 0;
 
-     /**
-        Determine if tile can move horizontally 
+    /**
+        Textual representation of tile.
         
-        @params 
-        
-        @return true
+        @param none
+        @return Textual representation of tile
     */
     string to_string();
 
     /**
-        Determine if tile can move horizontally 
-        
-        @params 
-        
-        @return true
+        Gets the Tile icons textual representation.
+
+        @param none
+        @return String denoting the Tile type.
     */
     string getConsoleIcon();
 };
