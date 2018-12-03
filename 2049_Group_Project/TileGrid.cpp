@@ -35,40 +35,6 @@ TileGrid::TileGrid(int w, int h)
     verticalTileImage = new Fl_PNG_Image("vertical.png");
     horizontalTileImage = new Fl_PNG_Image("horizontal.png");
     freemoveTileImage = new Fl_PNG_Image("freemove.png");
-
-
-
-    Fl_Window *window;
-    Fl_Box *titleBox;
-    Fl_Box *gridBox;
-
-    window = new Fl_Window (600, 400);
-    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
-    titleBox->box (FL_UP_BOX);
-    titleBox->align(FL_ALIGN_TOP);
-    titleBox->labelsize (36);
-    titleBox->labelfont (FL_BOLD+FL_ITALIC);
-    titleBox->labeltype (FL_SHADOW_LABEL);
-
-    gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
-    gridBox->image(gridImage);
-
-
-    Fl_Box *vt = new Fl_Box (51, 50, verticalTileImage->w(), verticalTileImage->h(), "");
-    vt->image(verticalTileImage);
-
-
-    Fl_Box *ht = new Fl_Box (115, 50, horizontalTileImage->w(), horizontalTileImage->h(), "");
-    ht->image(horizontalTileImage);
-
-    Fl_Box *fmt = new Fl_Box (179, 50, freemoveTileImage->w(), freemoveTileImage->h(), "");
-    fmt->image(freemoveTileImage);
-
-
-    window->end ();
-    window->show ();
-
-    Fl::run();
 }
 
 /**
@@ -104,6 +70,85 @@ void TileGrid::drawGrid()
         // Print
         cout << gridline << endl;
     }
+}
+
+void TileGrid::drawGUI()
+{
+    Fl_Window *window;
+    Fl_Box *titleBox;
+    Fl_Box *gridBox;
+
+    window = new Fl_Window (600, 400);
+    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
+    titleBox->box (FL_UP_BOX);
+    titleBox->align(FL_ALIGN_TOP);
+    titleBox->labelsize (36);
+    titleBox->labelfont (FL_BOLD+FL_ITALIC);
+    titleBox->labeltype (FL_SHADOW_LABEL);
+
+    gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
+    gridBox->image(gridImage);
+
+
+    /*Fl_Box *vt = new Fl_Box (50, 45, verticalTileImage->w(), verticalTileImage->h(), "2");
+    vt->image(verticalTileImage);
+    vt->align(FL_ALIGN_IMAGE_BACKDROP);
+
+
+    Fl_Box *ht = new Fl_Box (114, 45, horizontalTileImage->w(), horizontalTileImage->h(), "4");
+    ht->image(horizontalTileImage);
+    ht->align(FL_ALIGN_IMAGE_BACKDROP);
+
+    Fl_Box *fmt = new Fl_Box (178, 45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
+    fmt->image(freemoveTileImage);
+    fmt->align(FL_ALIGN_IMAGE_BACKDROP);
+*/
+    Fl_Box **drawTiles = new Fl_Box*[width*height];
+
+
+     // Loop through the grid
+    for(int y = 0; y < height; y++)
+    {
+        string gridline = "";
+        for(int x = 0; x < width; x++)
+        {
+            // Get location
+            NumberTile* currentTile = getTileAtLocation(x,y);
+            // Check Tile
+            if(currentTile!=nullptr)
+            {
+
+                // Create Tile icon
+                string testString = std::to_string(currentTile->getValue()).c_str();
+                drawTiles[y*width+x] = new Fl_Box (64*x+50, 64*y+45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
+                drawTiles[y*width+x]->copy_label(testString.c_str());
+                cout<< std::to_string(currentTile->getValue()).c_str()<<endl;
+                drawTiles[y*width+x]->align(FL_ALIGN_IMAGE_BACKDROP);
+
+                if(currentTile->getTileType() == "VerticalMoveTile")
+                {
+                    drawTiles[y*width+x]->image(verticalTileImage);
+                }
+                else if(currentTile->getTileType() == "HorizontalMoveTile")
+                {
+                    drawTiles[y*width+x]->image(horizontalTileImage);
+                }
+                else
+                {
+                    drawTiles[y*width+x]->image(freemoveTileImage);
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    window->end ();
+    window->show ();
+
+    Fl::run();
 }
 
 /**
@@ -172,6 +217,7 @@ void TileGrid::moveTilesHorzontal(int dir)
                 if(tg[i]->getX() == x && !tileMoved[i])
                 {
                     bool moveFinished = false;
+                    if(!tg[i]->canMoveHorizontal()) moveFinished = true;
                     while(tg[i]->getX() < width-1 && !moveFinished)
                     {
                         int testIndex = getTileIndexByLocation((tg[i]->getX()+dir),(tg[i]->getY()));
@@ -220,6 +266,7 @@ void TileGrid::moveTilesHorzontal(int dir)
                 if(tg[i]->getX() == x && !tileMoved[i])
                 {
                     bool moveFinished = false;
+                    if(!tg[i]->canMoveHorizontal()) moveFinished = true;
                     while(tg[i]->getX() > 0 && !moveFinished)
                     {
                         int testIndex = getTileIndexByLocation((tg[i]->getX()+dir),(tg[i]->getY()));
@@ -284,6 +331,7 @@ void TileGrid::moveTilesVertical(int dir)
                 if(tg[i]->getY() == y && !tileMoved[i])
                 {
                     bool moveFinished = false;
+                    if(!tg[i]->canMoveVertical()) moveFinished = true;
                     while(tg[i]->getY() < height-1 && !moveFinished)
                     {
                         int testIndex = getTileIndexByLocation((tg[i]->getX()),(tg[i]->getY()+dir));
@@ -331,6 +379,7 @@ void TileGrid::moveTilesVertical(int dir)
                 if(tg[i]->getY() == y && !tileMoved[i])
                 {
                     bool moveFinished = false;
+                    if(!tg[i]->canMoveVertical()) moveFinished = true;
                     while(tg[i]->getY() > 0 && !moveFinished)
                     {
                         //NumberTile* testTile = getTileAtLocation((tg[i]->getX()),(tg[i]->getY()+dir));

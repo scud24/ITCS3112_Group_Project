@@ -63,6 +63,13 @@ public:
     void drawGrid();
 
     /**
+        Updates the GUI representation of the grid
+
+        @param none
+    */
+    void drawGUI();
+
+    /**
         Lists all active tiles in the console.
 
         @param none
@@ -141,6 +148,14 @@ public:
         @param index The tile's index on grid
     */
     void removeTileAtIndex(int index);
+
+
+    /**
+        Spawn a random tile of a random type at a random location
+
+        @param
+    */
+    void spawnRandomTile();
 };
 
 #endif // TILEGRID_H_INCLUDED

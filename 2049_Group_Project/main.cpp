@@ -45,6 +45,7 @@ int main()
     // Set grid and display
     tg->listActiveTiles();
     tg->drawGrid();
+    tg->drawGUI();
 
     // Store user input
     string playerInput;
@@ -79,12 +80,13 @@ int main()
             cout << "Exitting Game.... GoodBye!" << endl;
         }
         tg->drawGrid();
+        tg->drawGUI();
     }
 
     // Clear tiles and drid before exitting
-    tg->clearTiles();
+    //tg->clearTiles();
 
-    tg->drawGrid();
+    //tg->drawGrid();
 
 
 
