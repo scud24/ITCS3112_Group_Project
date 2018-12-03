@@ -31,7 +31,7 @@ public:
 
     /**
         Constructor: Creates number tile based on a value.
-        
+
         @param xpos X coordinate on grid.
         @param ypos Y coordinate on grid.
         @ param tileValue Value of the tile
@@ -41,7 +41,7 @@ public:
 
     /**
         Sets the value of Tile.
-        
+
         @param newValue Value to be assigned.
 
     */
@@ -49,63 +49,63 @@ public:
 
     /**
         Gets the value of Tile.
-        
-        @param none 
+
+        @param none
         @return Value of the Tile
     */
     int getValue();
 
     /**
         Set X coordinate of tile.
-        
-        @param newX Value of coordinate. 
+
+        @param newX Value of coordinate.
     */
     void setX(int newX);
 
     /**
         Get X coordinate of tile.
-        
-        @return x coordinate value. 
+
+        @return x coordinate value.
     */
     int getX();
 
     /**
         Set Y coordinate of tile.
-        
-        @param newY Value of coordinate. 
+
+        @param newY Value of coordinate.
     */
     void setY(int newY);
 
     /**
         Get Y coordinate of tile.
-        
-        @return y coordinate value. 
+
+        @return y coordinate value.
     */
     int getY();
 
     /**
         Set Tile Type.
-        
-        @param newType The Tile type. 
+
+        @param newType The Tile type.
     */
     void setTileType(string newType);
 
     /**
         Get Tile Type.
-        
-        @return The Tile type. 
+
+        @return The Tile type.
     */
     string getTileType();
 
    /**
-        Determine if tile can move horizontally. 
-        
+        Determine if tile can move horizontally.
+
         @return Decide if move is possible.
     */
     virtual bool canMoveHorizontal() const = 0;
  /**
-        Determine if tile can move vertically. 
-        
+        Determine if tile can move vertically.
+
         @return Decide if move is possible
     */
     virtual bool canMoveVertical() const = 0;
@@ -129,7 +129,7 @@ public:
 
     /**
         Textual representation of tile.
-        
+
         @param none
         @return Textual representation of tile
     */
@@ -141,7 +141,7 @@ public:
         @param none
         @return String denoting the Tile type.
     */
-    string getConsoleIcon();
+    virtual string getConsoleIcon();
 };
 
 #endif // NUMBERTILE_H_INCLUDED

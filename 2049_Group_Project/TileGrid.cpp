@@ -3,7 +3,7 @@
     TileGrid.cpp
     Purpose: Create Grid for the Game.
     Add and delete tiles on the grid.
-    Alter the tiles, get their location, change type and combine them to create 
+    Alter the tiles, get their location, change type and combine them to create
     new tiles on the grid.
 
     @author Nathan Holzworth, Abhinav Kasu, Johathan Walters
@@ -13,11 +13,11 @@
 #include <iostream>
 #include <cstdlib>
 
-
 using namespace std;
 
 // Include required header files
 #include "TileGrid.h"
+#include <Fl/Fl_JPEG_Image.H>
 
 /**
     Constructor: Creates grid based on the dimensions.
@@ -30,37 +30,76 @@ TileGrid::TileGrid(int w, int h)
 {
     // Create
     tg = new NumberTile*[width*height];
+
+    gridImage = new Fl_PNG_Image("grid320.png");
+    verticalTileImage = new Fl_PNG_Image("vertical.png");
+    horizontalTileImage = new Fl_PNG_Image("horizontal.png");
+    freemoveTileImage = new Fl_PNG_Image("freemove.png");
+
+
+
+    Fl_Window *window;
+    Fl_Box *titleBox;
+    Fl_Box *gridBox;
+
+    window = new Fl_Window (600, 400);
+    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
+    titleBox->box (FL_UP_BOX);
+    titleBox->align(FL_ALIGN_TOP);
+    titleBox->labelsize (36);
+    titleBox->labelfont (FL_BOLD+FL_ITALIC);
+    titleBox->labeltype (FL_SHADOW_LABEL);
+
+    gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
+    gridBox->image(gridImage);
+
+
+    Fl_Box *vt = new Fl_Box (51, 50, verticalTileImage->w(), verticalTileImage->h(), "");
+    vt->image(verticalTileImage);
+
+
+    Fl_Box *ht = new Fl_Box (115, 50, horizontalTileImage->w(), horizontalTileImage->h(), "");
+    ht->image(horizontalTileImage);
+
+    Fl_Box *fmt = new Fl_Box (179, 50, freemoveTileImage->w(), freemoveTileImage->h(), "");
+    fmt->image(freemoveTileImage);
+
+
+    window->end ();
+    window->show ();
+
+    Fl::run();
 }
 
 /**
     Prints a symbolic representation of the game board to the console.
-        
+
     @param none
 */
 void TileGrid::drawGrid()
 {
     // Formatting
     cout<< endl;
-    
+
     // Loop through the grid
     for(int y = 0; y < height; y++)
     {
         string gridline = "";
         for(int x = 0; x < width; x++)
         {
-           // Get location
-           NumberTile* currentTile = getTileAtLocation(x,y);
-           // Check Tile
-           if(currentTile!=nullptr)
-           {
-               // Create Tile icon
+            // Get location
+            NumberTile* currentTile = getTileAtLocation(x,y);
+            // Check Tile
+            if(currentTile!=nullptr)
+            {
+                // Create Tile icon
                 gridline+= " " + currentTile->getConsoleIcon();
-           }
-           else
-           {
-               // Create Grid
+            }
+            else
+            {
+                // Create Grid
                 gridline+= " |  |";
-           }
+            }
         }
         // Print
         cout << gridline << endl;
@@ -69,14 +108,14 @@ void TileGrid::drawGrid()
 
 /**
     Lists all active tiles in the console
-    
+
     @param none
 */
 void TileGrid::listActiveTiles()
 {
     // Print dimensions of grid
     cout<< endl << "Dimensions: " << width << ", " << height <<  endl;
-    
+
     // Loop through Tiles
     for(int i = 0; i < activeTiles; i++)
     {
@@ -87,7 +126,7 @@ void TileGrid::listActiveTiles()
 
 /**
     Clears the grid's list of current tile
-    
+
     @param none
 */
 void TileGrid::clearTiles()
@@ -123,7 +162,7 @@ void TileGrid::moveTilesHorzontal(int dir)
     if(dir == 1)
     {
         // Information
-    cout << "Shifting tiles right" << endl;
+        cout << "Shifting tiles right" << endl;
         // Loop through grid
         for(int x = width-2; x >= 0; x--)
         {
@@ -142,9 +181,9 @@ void TileGrid::moveTilesHorzontal(int dir)
                             {
                                 //Display Tile movement and remove old data
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ") merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << ")" << endl;
-                                    tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
+                                tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << "), New val: " << tg[testIndex]->getValue() << endl;
-                                    removeTileAtIndex(i);
+                                removeTileAtIndex(i);
                                 cout << "Tile at index: " << i << " removed. Active tiles: " << activeTiles << endl;
                                 moveFinished = true;
                             }
@@ -153,7 +192,7 @@ void TileGrid::moveTilesHorzontal(int dir)
                                 //Display Tile movement and remove old data
                                 moveFinished = true;
                                 cout << "Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" <<
-                                        " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
+                                     " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
                             }
                         }
                         else
@@ -170,8 +209,8 @@ void TileGrid::moveTilesHorzontal(int dir)
     //Move Left
     else
     {
-     // Information
-    cout << "Shifting tiles left" << endl;
+        // Information
+        cout << "Shifting tiles left" << endl;
         // Loop through grid
         for(int x = 1; x < width; x++)
         {
@@ -190,9 +229,9 @@ void TileGrid::moveTilesHorzontal(int dir)
                             {
                                 //Display Tile movement and remove old data
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ") merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << ")" << endl;
-                                    tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
+                                tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << "), New val: " << tg[testIndex]->getValue() << endl;
-                                    removeTileAtIndex(i);
+                                removeTileAtIndex(i);
                                 cout << "Tile at index: " << i << " removed. Active tiles: " << activeTiles << endl;
                                 moveFinished = true;
                             }
@@ -201,7 +240,7 @@ void TileGrid::moveTilesHorzontal(int dir)
                                 //Display Tile movement and remove old data
                                 moveFinished = true;
                                 cout << "Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" <<
-                                        " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
+                                     " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
                             }
                         }
                         else
@@ -234,8 +273,8 @@ void TileGrid::moveTilesVertical(int dir)
     if(dir == 1)
     {
         //Information
-    cout << "Shifting tiles down" << endl;
-    
+        cout << "Shifting tiles down" << endl;
+
         // Loop through grid
         for(int y = height-2; y >= 0; y--)
         {
@@ -254,9 +293,9 @@ void TileGrid::moveTilesVertical(int dir)
                             {
                                 //Display Tile movement and remove old data
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ") merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << ")" << endl;
-                                    tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
+                                tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << "), New val: " << tg[testIndex]->getValue() << endl;
-                                    removeTileAtIndex(i);
+                                removeTileAtIndex(i);
                                 cout << "Tile at index: " << i << " removed. Active tiles: " << activeTiles << endl;
                                 moveFinished = true;
                             }
@@ -265,7 +304,7 @@ void TileGrid::moveTilesVertical(int dir)
                                 //Display Tile movement and remove old data
                                 moveFinished = true;
                                 cout << "Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" <<
-                                        " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
+                                     " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
                             }
                         }
                         else
@@ -282,7 +321,7 @@ void TileGrid::moveTilesVertical(int dir)
     else//Move up
     {
         // Information
-    cout << "Shifting tiles up" << endl;
+        cout << "Shifting tiles up" << endl;
         // Loop through grid
         for(int y = 0; y < height; y++)
         {
@@ -302,9 +341,9 @@ void TileGrid::moveTilesVertical(int dir)
                             {
                                 //Display Tile movement and remove old data
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ") merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << ")" << endl;
-                                    tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
+                                tg[testIndex] = combineTiles(tg[testIndex], tg[i]);
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " merged to (" << tg[testIndex]->getX() << ", " << tg[testIndex]->getY() << "), New val: " << tg[testIndex]->getValue() << endl;
-                                    removeTileAtIndex(i);
+                                removeTileAtIndex(i);
                                 cout << "Tile at index: " << i << " removed. Active tiles: " << activeTiles << endl;
                                 moveFinished = true;
                             }
@@ -313,7 +352,7 @@ void TileGrid::moveTilesVertical(int dir)
                                 //Display Tile movement and remove old data
                                 moveFinished = true;
                                 cout << i<< " Tile val: " << tg[i]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" <<
-                                            " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
+                                     " blocked by val: " << tg[testIndex]->getValue() << " at (" << tg[i]->getX() << ", " << tg[i]->getY() << ")" << endl;
                             }
                         }
                         else
@@ -349,11 +388,12 @@ int TileGrid::getNumActiveTiles()
 */
 NumberTile* TileGrid::getTileAtLocation(int x, int y)
 {
-    // Loop 
+    // Loop
     for(int i = 0; i < activeTiles; i++)
     {
         // Check location
-        if(x==tg[i]->getX() && y==tg[i]->getY()){
+        if(x==tg[i]->getX() && y==tg[i]->getY())
+        {
             return tg[i];
         }
     }
@@ -373,7 +413,8 @@ int TileGrid::getTileIndexByLocation(int x, int y)
     for(int i = 0; i < activeTiles; i++)
     {
         // Check location
-        if(x==tg[i]->getX() && y==tg[i]->getY()){
+        if(x==tg[i]->getX() && y==tg[i]->getY())
+        {
             return i;
         }
     }
@@ -390,7 +431,7 @@ NumberTile* TileGrid::combineTiles(NumberTile* a, NumberTile* b)
 {
     // Information
     cout << "Combining Tiles A- val: " << a->getValue() << " from (" << a->getX() << ", " << a->getY() << ") and B- val: " << b->getValue() << " from (" << b->getX() << ", " << b->getY()
-    << ") at pos (" << a->getX() << ", " << a->getY() << ")" << endl;
+         << ") at pos (" << a->getX() << ", " << a->getY() << ")" << endl;
     // New Tile
     NumberTile* outTile;
     string newType = a->getCombinedTileType(b);

@@ -16,17 +16,34 @@
 #include "HorizontalMoveTile.h"
 #include "VerticalMoveTile.h"
 
+
+
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Box.H>
+
+#include <FL/Fl_Image.H>
+#include <FL/Fl_Shared_Image.H>
+#include <FL/Fl_PNG_Image.H>
+#include <FL/fl_draw.H>
+
 using namespace std;
 
 class TileGrid
 {
-    
+
 // Declare Fields
 protected:
 int width;
 int height;
 int activeTiles;
 NumberTile** tg;
+Fl_PNG_Image* verticalTileImage;
+Fl_PNG_Image* horizontalTileImage;
+Fl_PNG_Image* freemoveTileImage;
+Fl_PNG_Image* gridImage;
+
+
 
 public:
 
@@ -40,21 +57,21 @@ public:
 
     /**
         Prints a symbolic representation of the game board to the console.
-        
+
         @param none
     */
     void drawGrid();
 
     /**
         Lists all active tiles in the console.
-        
+
         @param none
     */
     void listActiveTiles();
 
     /**
         Clears the grid's list of current tile.
-        
+
         @param none
     */
     void clearTiles();

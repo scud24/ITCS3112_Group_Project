@@ -77,5 +77,5 @@ string VerticalMoveTile::getCombinedTileType(NumberTile* t) const
 string VerticalMoveTile::getConsoleIcon()
 {
     // Return textual reprersentation
-    return "^" + std::to_string(value) + "v";
+    return "^" + std::to_string(value) + "v ";
 }

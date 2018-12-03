@@ -17,7 +17,7 @@ using namespace std;
 
     @param x cordinate value on grid.
     @param y cordinate value on grid.
-    @param value the number Tile should hold. 
+    @param value the number Tile should hold.
 */
 FreeMoveTile::FreeMoveTile(int x, int y, int value)
     :NumberTile(x, y, value)
@@ -28,7 +28,7 @@ FreeMoveTile::FreeMoveTile(int x, int y, int value)
 
 /**
     Determine if tile can move horizontally.
-        
+
     @param none
     @return True or False for the move.
 */
@@ -67,5 +67,5 @@ string FreeMoveTile::getCombinedTileType(NumberTile* t) const
 */
 string FreeMoveTile::getConsoleIcon()
 {
-    return "[" + std::to_string(value) + "]";
+    return " [" + std::to_string(value) + "]";
 }

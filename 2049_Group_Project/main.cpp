@@ -33,7 +33,7 @@ int main()
     HorizontalMoveTile* hmt2 = new HorizontalMoveTile(2,1,4);
     VerticalMoveTile* vmt1 = new VerticalMoveTile(3,3,16);
     VerticalMoveTile* vmt2 = new VerticalMoveTile(0,4,4);
-    
+
     // Add Tiles to grid
     tg->addTile(fmt1);
     tg->addTile(fmt2);
@@ -56,7 +56,7 @@ int main()
         cout << "Enter w, a, s, or d to move tiles up, left, down, or right, or Enter e to exit" << endl;
         cin>>playerInput;
         cout<< "Input was: " << playerInput << endl;
-        
+
         // Evaluate user input and move tiles
         if(playerInput == "w")
         {
@@ -86,5 +86,6 @@ int main()
 
     tg->drawGrid();
 
-    return 0;
+
+
 }

@@ -31,7 +31,7 @@ NumberTile::NumberTile()
 
 /**
     Constructor: Creates number tile based on a value.
-        
+
     @param xpos X coordinate on grid.
     @param ypos Y coordinate on grid.
     @ param tileValue Value of the tile
@@ -45,7 +45,7 @@ NumberTile::NumberTile(int xpos, int ypos, int tileValue)
 
 /**
     Sets the value of Tile.
-        
+
     @param newValue Value to be assigned.
 
 */
@@ -57,8 +57,8 @@ void NumberTile::setValue(int newValue)
 
 /**
     Gets the value of Tile.
-        
-    @param none 
+
+    @param none
     @return Value of the Tile
 */
 int NumberTile::getValue()
@@ -68,8 +68,8 @@ int NumberTile::getValue()
 
 /**
     Set X coordinate of tile.
-        
-    @param newX Value of coordinate. 
+
+    @param newX Value of coordinate.
 */
 void NumberTile::setX(int newX)
 {
@@ -79,8 +79,8 @@ void NumberTile::setX(int newX)
 
 /**
     Get X coordinate of tile.
-        
-    @return x coordinate value. 
+
+    @return x coordinate value.
 */
 int NumberTile::getX()
 {
@@ -89,8 +89,8 @@ int NumberTile::getX()
 
 /**
     Set Y coordinate of tile.
-        
-    @param newY Value of coordinate. 
+
+    @param newY Value of coordinate.
 */
 void NumberTile::setY(int newY)
 {
@@ -100,8 +100,8 @@ void NumberTile::setY(int newY)
 
 /**
     Get Y coordinate of tile.
-        
-    @return y coordinate value. 
+
+    @return y coordinate value.
 */
 int NumberTile::getY()
 {
@@ -110,8 +110,8 @@ int NumberTile::getY()
 
 /**
     Set Tile Type.
-        
-    @param newType The Tile type. 
+
+    @param newType The Tile type.
 */
 void NumberTile::setTileType(string newType)
 {
@@ -121,8 +121,8 @@ void NumberTile::setTileType(string newType)
 
 /**
     Get Tile Type.
-        
-    @return The Tile type. 
+
+    @return The Tile type.
 */
 string NumberTile::getTileType()
 {
@@ -143,7 +143,7 @@ bool NumberTile::canMergeWithTile(NumberTile* t)
 
 /**
     Textual representation of tile.
-        
+
     @param none
     @return Textual representation of tile
 */
@@ -162,5 +162,5 @@ string NumberTile::to_string()
 string NumberTile::getConsoleIcon()
 {
     // Return textual representation
-    return "#" + std::to_string(value) + "#";
+    return " #" + std::to_string(value) + "#";
 }
