@@ -156,6 +156,22 @@ public:
         @param
     */
     void spawnRandomTile();
+
+
+    /**
+        Check if game has been won- i.e. if player has created a 2048 value tile;
+
+        @return whether game has been won
+    */
+    bool checkForWinner();
+
+
+    /**
+        Checks if all grid spots are full and if so indicates that the game has been lost
+
+        @return whether game has been lost
+    */
+    bool checkIfGameOver();
 };
 
 #endif // TILEGRID_H_INCLUDED

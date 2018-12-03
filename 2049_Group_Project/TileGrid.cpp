@@ -12,6 +12,11 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */   /* srand, rand */
+#include <cmath>
+
 
 using namespace std;
 
@@ -28,6 +33,10 @@ using namespace std;
 TileGrid::TileGrid(int w, int h)
     :width(w), height(h)
 {
+
+    /* initialize random seed: */
+    srand (time(NULL));
+
     // Create
     tg = new NumberTile*[width*height];
 
@@ -102,11 +111,11 @@ void TileGrid::drawGUI()
     Fl_Box *fmt = new Fl_Box (178, 45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
     fmt->image(freemoveTileImage);
     fmt->align(FL_ALIGN_IMAGE_BACKDROP);
-*/
+    */
     Fl_Box **drawTiles = new Fl_Box*[width*height];
 
 
-     // Loop through the grid
+    // Loop through the grid
     for(int y = 0; y < height; y++)
     {
         string gridline = "";
@@ -122,7 +131,7 @@ void TileGrid::drawGUI()
                 string testString = std::to_string(currentTile->getValue()).c_str();
                 drawTiles[y*width+x] = new Fl_Box (64*x+50, 64*y+45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
                 drawTiles[y*width+x]->copy_label(testString.c_str());
-                cout<< std::to_string(currentTile->getValue()).c_str()<<endl;
+                //cout<< std::to_string(currentTile->getValue()).c_str()<<endl;
                 drawTiles[y*width+x]->align(FL_ALIGN_IMAGE_BACKDROP);
 
                 if(currentTile->getTileType() == "VerticalMoveTile")
@@ -301,9 +310,7 @@ void TileGrid::moveTilesHorzontal(int dir)
             }
         }
     }
-
-
-
+    spawnRandomTile();
 }
 
 /**
@@ -415,6 +422,7 @@ void TileGrid::moveTilesVertical(int dir)
             }
         }
     }
+    spawnRandomTile();
 }
 
 /**
@@ -518,4 +526,65 @@ void TileGrid::removeTileAtIndex(int index)
         tg[i] = tg[i+1];
     }
     activeTiles--;
+}
+
+
+
+/**
+    Spawn a random tile of a random type at a random location
+
+    @param
+*/
+void TileGrid::spawnRandomTile()
+{
+
+    /* generate secret number between 1 and 10: */
+    int randomTile = rand() % 10 + 1;
+    //cout <<"randomtile: " << randomTile <<endl;
+    int randomVal = rand() % 4 + 1;
+    //cout <<"randomval: " << randomVal <<endl;
+
+    int randX = rand() % width;
+    int randY = rand() % height;
+    //cout <<"randYi: " << randY <<endl;
+    while(getTileAtLocation(randX, randY) != nullptr)
+    {
+        randX = rand() % width;
+        randY = rand() % height;
+    }
+
+    NumberTile* newtile;
+    if(randomTile < 7)
+    {
+        newtile = new FreeMoveTile(randX, randY, pow(2, randomVal));
+    }
+    else if(randomTile >= 9 && randomTile <10)
+    {
+        newtile = new HorizontalMoveTile(randX, randY, pow(2, randomVal));
+    }
+    else if(randomTile >= 10 && randomTile <11)
+    {
+        newtile = new VerticalMoveTile(randX, randY, pow(2, randomVal));
+    }
+    //cout << newtile->to_string() << endl;
+    addTile(newtile);
+}
+
+bool TileGrid::checkForWinner()
+{
+    // Loop
+    for(int i = 0; i < activeTiles; i++)
+    {
+        // Check location
+        if(tg[i]->getValue() == 2048)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool TileGrid::checkIfGameOver()
+{
+    return activeTiles >= width*height;
 }
