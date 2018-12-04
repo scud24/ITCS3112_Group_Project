@@ -40,6 +40,7 @@ int main()
             tg->spawnRandomTile();
         }
 
+        cout << "List tiles start" << endl;
         // Set grid and display
         tg->listActiveTiles();
         tg->drawGrid();
@@ -61,7 +62,7 @@ int main()
             }
             else if(playerInput == "a"||playerInput == "A")
             {
-                tg->moveTilesHorzontal(-1);
+                tg->moveTilesHorizontal(-1);
             }
             else if(playerInput == "s"||playerInput == "S")
             {
@@ -69,7 +70,7 @@ int main()
             }
             else if(playerInput == "d"||playerInput == "D")
             {
-                tg->moveTilesHorzontal(1);
+                tg->moveTilesHorizontal(1);
             }
             else if(playerInput != "e"||playerInput == "E")
             {
@@ -103,3 +104,4 @@ int main()
 
 
 }
+

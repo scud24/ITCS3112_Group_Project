@@ -26,6 +26,7 @@
 #include <FL/Fl_Shared_Image.H>
 #include <FL/Fl_PNG_Image.H>
 #include <FL/fl_draw.H>
+#include <FL/Fl_Button.H>
 
 using namespace std;
 
@@ -34,14 +35,14 @@ class TileGrid
 
 // Declare Fields
 protected:
-int width;
-int height;
-int activeTiles;
-NumberTile** tg;
-Fl_PNG_Image* verticalTileImage;
-Fl_PNG_Image* horizontalTileImage;
-Fl_PNG_Image* freemoveTileImage;
-Fl_PNG_Image* gridImage;
+    int width;
+    int height;
+    int activeTiles;
+    NumberTile** tg;
+    Fl_PNG_Image* verticalTileImage;
+    Fl_PNG_Image* horizontalTileImage;
+    Fl_PNG_Image* freemoveTileImage;
+    Fl_PNG_Image* gridImage;
 
 
 
@@ -54,6 +55,7 @@ public:
         @param h Height of the grid.
     */
     TileGrid(int w, int h);
+
 
     /**
         Prints a symbolic representation of the game board to the console.
@@ -95,7 +97,7 @@ public:
 
         @param dir The distance to move the Tile.
     */
-    void moveTilesHorzontal(int dir);
+    void moveTilesHorizontal(int dir);
 
     /**
         Moves Tile Vertically.
@@ -172,6 +174,41 @@ public:
         @return whether game has been lost
     */
     bool checkIfGameOver();
+
+
+    /**
+        Handles input from the up button
+
+        @param obj object callback originated from
+        @param other target of callback event
+    */
+    static void upButton_callback(Fl_Widget* obj, void*);
+
+    /**
+        Handles input from the down button
+
+        @param obj object callback originated from
+        @param other target of callback event
+    */
+    static void downButton_callback(Fl_Widget* obj, void*);
+
+    /**
+    Handles input from the left button
+
+    @param obj object callback originated from
+    @param other target of callback event
+    */
+    static void leftButton_callback(Fl_Widget* obj, void*);
+
+
+    /**
+    Handles input from the right button
+
+    @param obj object callback originated from
+    @param other target of callback event
+    */
+    static void rightButton_callback(Fl_Widget* obj, void*);
+
 };
 
 #endif // TILEGRID_H_INCLUDED

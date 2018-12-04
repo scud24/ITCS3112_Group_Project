@@ -16,6 +16,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */   /* srand, rand */
 #include <cmath>
+#include <functional>
 
 
 using namespace std;
@@ -87,6 +88,8 @@ void TileGrid::drawGUI()
     Fl_Box *titleBox;
     Fl_Box *gridBox;
 
+
+
     window = new Fl_Window (600, 400);
     titleBox = new Fl_Box (50, 50, 300, 300, "2049");
     titleBox->box (FL_UP_BOX);
@@ -98,20 +101,16 @@ void TileGrid::drawGUI()
     gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
     gridBox->image(gridImage);
 
+    Fl_Button *upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
+    upButton->callback(( Fl_Callback* ) upButton_callback, this);
+    Fl_Button *downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
+    downButton->callback(( Fl_Callback* ) downButton_callback, this);
+    Fl_Button *leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
+    leftButton->callback(( Fl_Callback* ) leftButton_callback, this);
+    Fl_Button *rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
+    rightButton->callback(( Fl_Callback* ) rightButton_callback, this);
 
-    /*Fl_Box *vt = new Fl_Box (50, 45, verticalTileImage->w(), verticalTileImage->h(), "2");
-    vt->image(verticalTileImage);
-    vt->align(FL_ALIGN_IMAGE_BACKDROP);
 
-
-    Fl_Box *ht = new Fl_Box (114, 45, horizontalTileImage->w(), horizontalTileImage->h(), "4");
-    ht->image(horizontalTileImage);
-    ht->align(FL_ALIGN_IMAGE_BACKDROP);
-
-    Fl_Box *fmt = new Fl_Box (178, 45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
-    fmt->image(freemoveTileImage);
-    fmt->align(FL_ALIGN_IMAGE_BACKDROP);
-    */
     Fl_Box **drawTiles = new Fl_Box*[width*height];
 
 
@@ -206,7 +205,7 @@ void TileGrid::addTile(NumberTile* t)
 
     @param dir The distance to move the Tile.
 */
-void TileGrid::moveTilesHorzontal(int dir)
+void TileGrid::moveTilesHorizontal(int dir)
 {
 
     // Track Tile movement
@@ -537,6 +536,7 @@ void TileGrid::removeTileAtIndex(int index)
 */
 void TileGrid::spawnRandomTile()
 {
+    cout << "Rand start" << endl;
 
     /* generate secret number between 1 and 10: */
     int randomTile = rand() % 10 + 1;
@@ -544,8 +544,8 @@ void TileGrid::spawnRandomTile()
     int randomVal = rand() % 4 + 1;
     //cout <<"randomval: " << randomVal <<endl;
 
-    int randX = rand() % width;
-    int randY = rand() % height;
+    int randX = rand() % 5;
+    int randY = rand() % 5;
     //cout <<"randYi: " << randY <<endl;
     while(getTileAtLocation(randX, randY) != nullptr)
     {
@@ -568,8 +568,14 @@ void TileGrid::spawnRandomTile()
     }
     //cout << newtile->to_string() << endl;
     addTile(newtile);
+    cout << "Rand end" << endl;
 }
 
+/**
+    Check if game has been won- i.e. if player has created a 2048 value tile;
+
+    @return whether game has been won
+*/
 bool TileGrid::checkForWinner()
 {
     // Loop
@@ -584,7 +590,68 @@ bool TileGrid::checkForWinner()
     return false;
 }
 
+/**
+    Checks if all grid spots are full and if so indicates that the game has been lost
+
+    @return whether game has been lost
+*/
 bool TileGrid::checkIfGameOver()
 {
     return activeTiles >= width*height;
+}
+
+
+
+/**
+    Handles input from the up button
+
+    @param obj object callback originated from
+    @param other target of callback event
+*/
+void TileGrid::upButton_callback(Fl_Widget* obj, void* other)
+{
+    TileGrid* tg = (TileGrid*)other;
+    tg->moveTilesVertical(-1);
+    tg->drawGUI();
+}
+
+/**
+    Handles input from the down button
+
+    @param obj object callback originated from
+    @param other target of callback event
+*/
+void TileGrid::downButton_callback(Fl_Widget* obj, void* other)
+{
+
+    TileGrid* tg = (TileGrid*)other;
+    tg->moveTilesVertical(1);
+    tg->drawGUI();
+}
+
+/**
+    Handles input from the left button
+
+    @param obj object callback originated from
+    @param other target of callback event
+*/
+void TileGrid::leftButton_callback(Fl_Widget* obj, void* other)
+{
+    TileGrid* tg = (TileGrid*)other;
+    tg->moveTilesHorizontal(-1);
+    tg->drawGUI();
+}
+
+
+/**
+    Handles input from the right button
+
+    @param obj object callback originated from
+    @param other target of callback event
+*/
+void TileGrid::rightButton_callback(Fl_Widget* obj, void* other)
+{
+    TileGrid* tg = (TileGrid*)other;
+    tg->moveTilesHorizontal(1);
+    tg->drawGUI();
 }
