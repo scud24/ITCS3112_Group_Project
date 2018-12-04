@@ -16,7 +16,13 @@
 #include "HorizontalMoveTile.h"
 #include "VerticalMoveTile.h"
 
-
+#include <iostream>
+#include <cstdlib>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */   /* srand, rand */
+#include <cmath>
+#include <functional>
 
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -38,11 +44,25 @@ protected:
     int width;
     int height;
     int activeTiles;
+    bool guiStarted;
     NumberTile** tg;
+
     Fl_PNG_Image* verticalTileImage;
     Fl_PNG_Image* horizontalTileImage;
     Fl_PNG_Image* freemoveTileImage;
     Fl_PNG_Image* gridImage;
+
+    Fl_Window *window;
+    Fl_Box *titleBox;
+    Fl_Box *gridBox;
+
+    Fl_Button *upButton;
+    Fl_Button *downButton;
+    Fl_Button *leftButton;
+    Fl_Button *rightButton;
+
+    Fl_Box **drawTiles;
+
 
 
 

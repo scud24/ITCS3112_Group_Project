@@ -16,11 +16,15 @@
 #include "HorizontalMoveTile.h"
 #include "VerticalMoveTile.h"
 
+
+
 using namespace std;
 
 
 int main()
 {
+    bool runInGUIMode = true;
+
     cout << "Welcome to 4096 Game" << endl;
 
 
@@ -44,49 +48,57 @@ int main()
         // Set grid and display
         tg->listActiveTiles();
         tg->drawGrid();
-        tg->drawGUI();
-
-        // Loop for game
-        bool gameOver = false;
-        while(playerInput!= "e" && !gameOver)
+        if(runInGUIMode)
         {
-            // get use imput and display prompt
-            cout << "Enter w, a, s, or d to move tiles up, left, down, or right, or Enter e to exit" << endl;
-            cin>>playerInput;
-            cout<< "Input was: " << playerInput << endl;
-
-            // Evaluate user input and move tiles
-            if(playerInput == "w"||playerInput == "W")
-            {
-                tg->moveTilesVertical(-1);
-            }
-            else if(playerInput == "a"||playerInput == "A")
-            {
-                tg->moveTilesHorizontal(-1);
-            }
-            else if(playerInput == "s"||playerInput == "S")
-            {
-                tg->moveTilesVertical(1);
-            }
-            else if(playerInput == "d"||playerInput == "D")
-            {
-                tg->moveTilesHorizontal(1);
-            }
-            else if(playerInput != "e"||playerInput == "E")
-            {
-                cout << "Exitting Game.... GoodBye!" << endl;
-            }
-            tg->drawGrid();
             tg->drawGUI();
-            if(tg->checkForWinner())
+        }
+        else
+        {
+            // Loop for game
+            bool gameOver = false;
+            while(playerInput!= "e" && !gameOver)
             {
-                cout<<"You Win!!!" << endl;
-            }
-            else if(tg->checkIfGameOver())
-            {
-                cout<<"All tiles filled. Game Over!" << endl;
+                // get use imput and display prompt
+                cout << "Enter w, a, s, or d to move tiles up, left, down, or right, or Enter e to exit" << endl;
+                cin>>playerInput;
+                cout<< "Input was: " << playerInput << endl;
+
+                // Evaluate user input and move tiles
+                if(playerInput == "w"||playerInput == "W")
+                {
+                    tg->moveTilesVertical(-1);
+                }
+                else if(playerInput == "a"||playerInput == "A")
+                {
+                    tg->moveTilesHorizontal(-1);
+                }
+                else if(playerInput == "s"||playerInput == "S")
+                {
+                    tg->moveTilesVertical(1);
+                }
+                else if(playerInput == "d"||playerInput == "D")
+                {
+                    tg->moveTilesHorizontal(1);
+                }
+                else if(playerInput != "e"||playerInput == "E")
+                {
+                    cout << "Exitting Game.... GoodBye!" << endl;
+                }
+                tg->drawGrid();
+                if(tg->checkForWinner())
+                {
+                    cout<<"You Win!!!" << endl;
+                    gameOver=true;
+                }
+                else if(tg->checkIfGameOver())
+                {
+                    cout<<"All tiles filled. Game Over!" << endl;
+                    gameOver=true;
+                }
             }
         }
+
+
         cout<<"Play again? [y/n]" << endl;
         cin >> playerInput;
         if(playerInput == "y"||playerInput == "Y")

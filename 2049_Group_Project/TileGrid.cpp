@@ -10,20 +10,13 @@
     @version 1.0 11/27/18
 */
 
-#include <iostream>
-#include <cstdlib>
-#include <stdio.h>      /* printf, scanf, puts, NULL */
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */   /* srand, rand */
-#include <cmath>
-#include <functional>
+
 
 
 using namespace std;
 
 // Include required header files
 #include "TileGrid.h"
-#include <Fl/Fl_JPEG_Image.H>
 
 /**
     Constructor: Creates grid based on the dimensions.
@@ -45,6 +38,34 @@ TileGrid::TileGrid(int w, int h)
     verticalTileImage = new Fl_PNG_Image("vertical.png");
     horizontalTileImage = new Fl_PNG_Image("horizontal.png");
     freemoveTileImage = new Fl_PNG_Image("freemove.png");
+
+
+
+    window = new Fl_Window (600, 400);
+    //window->
+    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
+    titleBox->box (FL_UP_BOX);
+    titleBox->align(FL_ALIGN_TOP);
+    titleBox->labelsize (36);
+    titleBox->labelfont (FL_BOLD+FL_ITALIC);
+    titleBox->labeltype (FL_SHADOW_LABEL);
+
+    gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
+    gridBox->image(gridImage);
+
+    upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
+    upButton->callback(( Fl_Callback* ) upButton_callback, this);
+    downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
+    downButton->callback(( Fl_Callback* ) downButton_callback, this);
+    leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
+    leftButton->callback(( Fl_Callback* ) leftButton_callback, this);
+    rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
+    rightButton->callback(( Fl_Callback* ) rightButton_callback, this);
+
+
+    drawTiles = new Fl_Box*[width*height];
+
+
 }
 
 /**
@@ -84,13 +105,11 @@ void TileGrid::drawGrid()
 
 void TileGrid::drawGUI()
 {
-    Fl_Window *window;
-    Fl_Box *titleBox;
-    Fl_Box *gridBox;
+    window->clear();
+    window->begin();
 
 
 
-    window = new Fl_Window (600, 400);
     titleBox = new Fl_Box (50, 50, 300, 300, "2049");
     titleBox->box (FL_UP_BOX);
     titleBox->align(FL_ALIGN_TOP);
@@ -101,23 +120,22 @@ void TileGrid::drawGUI()
     gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
     gridBox->image(gridImage);
 
-    Fl_Button *upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
+    upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
     upButton->callback(( Fl_Callback* ) upButton_callback, this);
-    Fl_Button *downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
+    downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
     downButton->callback(( Fl_Callback* ) downButton_callback, this);
-    Fl_Button *leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
+    leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
     leftButton->callback(( Fl_Callback* ) leftButton_callback, this);
-    Fl_Button *rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
+    rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
     rightButton->callback(( Fl_Callback* ) rightButton_callback, this);
 
 
-    Fl_Box **drawTiles = new Fl_Box*[width*height];
+    drawTiles = new Fl_Box*[width*height];
 
 
     // Loop through the grid
     for(int y = 0; y < height; y++)
     {
-        string gridline = "";
         for(int x = 0; x < width; x++)
         {
             // Get location
@@ -128,6 +146,7 @@ void TileGrid::drawGUI()
 
                 // Create Tile icon
                 string testString = std::to_string(currentTile->getValue()).c_str();
+
                 drawTiles[y*width+x] = new Fl_Box (64*x+50, 64*y+45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
                 drawTiles[y*width+x]->copy_label(testString.c_str());
                 //cout<< std::to_string(currentTile->getValue()).c_str()<<endl;
@@ -156,7 +175,15 @@ void TileGrid::drawGUI()
     window->end ();
     window->show ();
 
-    Fl::run();
+    if(guiStarted)
+    {
+        Fl::redraw();
+    }
+    else
+    {
+        guiStarted = true;
+        Fl::run();
+    }
 }
 
 /**
@@ -536,7 +563,7 @@ void TileGrid::removeTileAtIndex(int index)
 */
 void TileGrid::spawnRandomTile()
 {
-    cout << "Rand start" << endl;
+    //cout << "Rand start" << endl;
 
     /* generate secret number between 1 and 10: */
     int randomTile = rand() % 10 + 1;
@@ -554,7 +581,7 @@ void TileGrid::spawnRandomTile()
     }
 
     NumberTile* newtile;
-    if(randomTile < 7)
+    if(randomTile < 9)
     {
         newtile = new FreeMoveTile(randX, randY, pow(2, randomVal));
     }
@@ -568,7 +595,7 @@ void TileGrid::spawnRandomTile()
     }
     //cout << newtile->to_string() << endl;
     addTile(newtile);
-    cout << "Rand end" << endl;
+    //cout << "Rand end" << endl;
 }
 
 /**

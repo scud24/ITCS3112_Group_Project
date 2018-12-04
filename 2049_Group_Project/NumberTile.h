@@ -9,7 +9,7 @@
 
 #ifndef NUMBERTILE_H_INCLUDED
 #define NUMBERTILE_H_INCLUDED
-
+#include <string>
 using namespace std;
 
 class NumberTile
