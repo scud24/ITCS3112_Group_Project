@@ -18,9 +18,9 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <stdio.h>      /* printf, scanf, puts, NULL */
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */   /* srand, rand */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <cmath>
 #include <functional>
 
@@ -88,9 +88,10 @@ public:
     void drawGrid();
 
     /**
-        Updates the GUI representation of the grid
+        Creates  GUI grid based on game status.
 
         @param none
+        @return wether to draw the GUI
     */
     bool drawGUI();
 

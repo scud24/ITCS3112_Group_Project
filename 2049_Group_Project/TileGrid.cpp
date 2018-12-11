@@ -31,9 +31,8 @@ TileGrid::TileGrid(int w, int h)
     /* initialize random seed: */
     srand (time(NULL));
 
-    // Create
+    // Create GUI
     tg = new NumberTile*[width*height];
-
     gridImage = new Fl_PNG_Image("grid320.png");
     verticalTileImage = new Fl_PNG_Image("vertical.png");
     horizontalTileImage = new Fl_PNG_Image("horizontal.png");
@@ -44,7 +43,7 @@ TileGrid::TileGrid(int w, int h)
     window = new Fl_Window (650, 400);
     window->callback(( Fl_Callback* ) gameWindow_callback, window);
 
-    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
+    titleBox = new Fl_Box (50, 50, 300, 300, "4096");
     titleBox->box (FL_UP_BOX);
     titleBox->align(FL_ALIGN_TOP);
     titleBox->labelsize (36);
@@ -66,6 +65,7 @@ TileGrid::TileGrid(int w, int h)
     window->show();
     drawTiles = new Fl_Box*[width*height];
 
+    // Set Game stats
     wonGame = false;
     gameOver = false;
     cout << "Finished initializing TileGrid" << endl;
@@ -107,17 +107,23 @@ void TileGrid::drawGrid()
     }
 }
 
+/**
+    Creates  GUI grid based on game status.
+
+    @param none
+    @return wether to draw the GUI
+*/
 bool TileGrid::drawGUI()
 {
 
-    //cout << "Draw GUI start" << endl;
+    // Reset GUI
     window->clear();
     window->begin();
 
 
 
-    //cout << "Window begin" << endl;
-    titleBox = new Fl_Box (50, 50, 300, 300, "2049");
+    //Create GUI grid
+    titleBox = new Fl_Box (50, 50, 300, 300, "4096");
     titleBox->box (FL_UP_BOX);
     titleBox->align(FL_ALIGN_TOP);
     titleBox->labelsize (36);
@@ -156,14 +162,14 @@ bool TileGrid::drawGUI()
             if(currentTile!=nullptr)
             {
 
-                // Create Tile icon
+                // Create Tile icon and tiles
                 string testString = std::to_string(currentTile->getValue()).c_str();
 
                 drawTiles[y*width+x] = new Fl_Box (64*x+50, 64*y+45, freemoveTileImage->w(), freemoveTileImage->h(), "8");
                 drawTiles[y*width+x]->copy_label(testString.c_str());
-                //cout<< std::to_string(currentTile->getValue()).c_str()<<endl;
                 drawTiles[y*width+x]->align(FL_ALIGN_IMAGE_BACKDROP);
 
+                // Evaluate and draw tiles
                 if(currentTile->getTileType() == "VerticalMoveTile")
                 {
                     drawTiles[y*width+x]->image(verticalTileImage);
@@ -184,12 +190,16 @@ bool TileGrid::drawGUI()
         }
     }
 
+    // Set GUI
     window->end ();
     window->show ();
     Fl::focus(window);
 
+    // Check game status
     bool gameOver = false;
     wonGame = checkForWinner();
+
+    // Check for win
     if(wonGame)
     {
         cout<<"You Win!!!" << endl;
@@ -200,7 +210,8 @@ bool TileGrid::drawGUI()
         cout<<"All tiles filled. Game Over!" << endl;
         gameOver=true;
     }
-    //cout << "Draw GUI done" << endl;
+
+    // End game
     if(gameOver)
     {
         cout << "GUI Game Finished" << endl;
@@ -216,12 +227,11 @@ bool TileGrid::drawGUI()
         {
           instructionBox->label("Game over.\n Close window to return to menu");
         }
-        //window->do_callback();
-        //window->hide();
 
 
     }
 
+    // Game restart
     if(guiStarted)
     {
         cout << "Window redraw" << endl;
@@ -235,7 +245,6 @@ bool TileGrid::drawGUI()
         cout << "First window draw" << endl;
         guiStarted = true;
         Fl::redraw();
-        //Fl::run();
     }
 
     cout << "GUI return - gameover: " << gameOver << endl;
@@ -471,7 +480,7 @@ void TileGrid::moveTilesVertical(int dir)
                     if(!tg[i]->canMoveVertical()) moveFinished = true;
                     while(tg[i]->getY() > 0 && !moveFinished)
                     {
-                        //NumberTile* testTile = getTileAtLocation((tg[i]->getX()),(tg[i]->getY()+dir));
+
                         int testIndex = getTileIndexByLocation((tg[i]->getX()),(tg[i]->getY()+dir));
                         if(testIndex!=-1)
                         {
@@ -527,7 +536,7 @@ int TileGrid::getNumActiveTiles()
 */
 NumberTile* TileGrid::getTileAtLocation(int x, int y)
 {
-    //cout << "GetTileAtLocation start" << endl;
+
     // Loop
     for(int i = 0; i < activeTiles; i++)
     {
@@ -537,7 +546,7 @@ NumberTile* TileGrid::getTileAtLocation(int x, int y)
             return tg[i];
         }
     }
-    //cout << "GetTileAtLocation end" << endl;
+
     return nullptr;
 }
 
@@ -621,27 +630,24 @@ void TileGrid::removeTileAtIndex(int index)
 */
 void TileGrid::spawnRandomTile()
 {
-    //cout << "Rand start" << endl;
+
 
     /* generate secret number between 1 and 10: */
     int randomTile = rand() % 10 + 1;
-    //cout <<"randomtile: " << randomTile <<endl;
     int randomVal = rand() % 4 + 1;
-    //cout <<"randomval: " << randomVal <<endl;
 
     int randX = rand() % 5;
     int randY = rand() % 5;
     while(getTileAtLocation(randX, randY) != nullptr)
     {
-        //cout << "reset rand" << endl;
+
         randX = rand() % width;
         randY = rand() % height;
     }
 
-    //cout <<"randX final: " << randX <<endl;
-    //cout <<"randY final: " << randY <<endl;
+
     NumberTile* newtile;
-    //cout << "newtile set" << endl;
+
     if(randomTile < 9)
     {
         newtile = new FreeMoveTile(randX, randY, pow(2, randomVal));
@@ -654,9 +660,9 @@ void TileGrid::spawnRandomTile()
     {
         newtile = new VerticalMoveTile(randX, randY, pow(2, randomVal));
     }
-    //cout << newtile->to_string() << endl;
+
     addTile(newtile);
-    //cout << "Rand end" << endl;
+
 }
 
 /**
@@ -760,20 +766,21 @@ void TileGrid::gameWindow_callback(Fl_Widget* obj, void* w)
 
 /**
     GUI mode main loop
+
+    @param none
+    @return whether to play again
 */
 bool TileGrid::runGUI()
 {
     bool gameOver = false;
     cout << "Start in Run GUI" << endl;
     bool playAgain = false;
-    //while(!gameOver)
-    //{
+
     gameOver = drawGUI();
 
     cout << endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl;
     cout << "Game finished-" << gameOver << endl;
     Fl::wait(100000);
-    //Fl::wait(100000);
-    //}
+
     return playAgain;
 }

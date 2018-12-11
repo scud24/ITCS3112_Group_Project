@@ -1,0 +1,287 @@
+\hypertarget{classNumberTile}{}\section{Number\+Tile Class Reference}
+\label{classNumberTile}\index{Number\+Tile@{Number\+Tile}}
+
+
+Inheritance diagram for Number\+Tile\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNumberTile_a8263f8868395d47c8cce9e5678e95434}{Number\+Tile} ()
+\item 
+\hyperlink{classNumberTile_a7ed5d800a193a4e925ac7543ec73d3b6}{Number\+Tile} (int xpos, int ypos, int tile\+Value)
+\item 
+void \hyperlink{classNumberTile_afdcd9ba36599ad5c7c8788fdb9d31352}{set\+Value} (int new\+Value)
+\item 
+int \hyperlink{classNumberTile_a7a870508ad2bfbf3e5de48b49db58a56}{get\+Value} ()
+\item 
+void \hyperlink{classNumberTile_aaa040ff3410c3722b29af28f8f9752e4}{setX} (int newX)
+\item 
+int \hyperlink{classNumberTile_a20819d16d4d00620c81cd44a56a6452b}{getX} ()
+\item 
+void \hyperlink{classNumberTile_afbe34f51da300bc1fd9eed4cb9cd47fa}{setY} (int newY)
+\item 
+int \hyperlink{classNumberTile_a9c827ee17536bc5f0caeca36c7f6e48c}{getY} ()
+\item 
+void \hyperlink{classNumberTile_aee2c091b10b1c2f457003c59ad233535}{set\+Tile\+Type} (string new\+Type)
+\item 
+string \hyperlink{classNumberTile_aea8171fadfd8e145fdbbb8f0f757c52e}{get\+Tile\+Type} ()
+\item 
+virtual bool \hyperlink{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}{can\+Move\+Horizontal} () const =0
+\item 
+virtual bool \hyperlink{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}{can\+Move\+Vertical} () const =0
+\item 
+bool \hyperlink{classNumberTile_a736e7c1605cc7cae200307672aa01ab8}{can\+Merge\+With\+Tile} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t)
+\item 
+virtual string \hyperlink{classNumberTile_ade182f6db206f66401486997cb31ee01}{get\+Combined\+Tile\+Type} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t) const =0
+\item 
+string \hyperlink{classNumberTile_af33e3c4937201c189e901615816b0e3c}{to\+\_\+string} ()
+\item 
+virtual string \hyperlink{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}{get\+Console\+Icon} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNumberTile_a77109af85d97fdfb9761e8d0614c4641}\label{classNumberTile_a77109af85d97fdfb9761e8d0614c4641}} 
+int {\bfseries value}
+\item 
+\mbox{\Hypertarget{classNumberTile_afcfebf63fe430211a37f347dbd3bc69b}\label{classNumberTile_afcfebf63fe430211a37f347dbd3bc69b}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classNumberTile_a1cd07ef9c3c90b475b50afd3cd77b719}\label{classNumberTile_a1cd07ef9c3c90b475b50afd3cd77b719}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classNumberTile_aedea908097bbee85233f665705635b18}\label{classNumberTile_aedea908097bbee85233f665705635b18}} 
+string {\bfseries type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNumberTile_a8263f8868395d47c8cce9e5678e95434}\label{classNumberTile_a8263f8868395d47c8cce9e5678e95434}} 
+\index{Number\+Tile@{Number\+Tile}!Number\+Tile@{Number\+Tile}}
+\index{Number\+Tile@{Number\+Tile}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{Number\+Tile()}{NumberTile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Number\+Tile\+::\+Number\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor\+: Create empty tile. \mbox{\Hypertarget{classNumberTile_a7ed5d800a193a4e925ac7543ec73d3b6}\label{classNumberTile_a7ed5d800a193a4e925ac7543ec73d3b6}} 
+\index{Number\+Tile@{Number\+Tile}!Number\+Tile@{Number\+Tile}}
+\index{Number\+Tile@{Number\+Tile}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{Number\+Tile()}{NumberTile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Number\+Tile\+::\+Number\+Tile (\begin{DoxyParamCaption}\item[{int}]{xpos,  }\item[{int}]{ypos,  }\item[{int}]{tile\+Value }\end{DoxyParamCaption})}
+
+Constructor\+: Creates number tile based on a value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpos} & X coordinate on grid. \\
+\hline
+{\em ypos} & Y coordinate on grid. @ param tile\+Value Value of the tile \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNumberTile_a736e7c1605cc7cae200307672aa01ab8}\label{classNumberTile_a736e7c1605cc7cae200307672aa01ab8}} 
+\index{Number\+Tile@{Number\+Tile}!can\+Merge\+With\+Tile@{can\+Merge\+With\+Tile}}
+\index{can\+Merge\+With\+Tile@{can\+Merge\+With\+Tile}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{can\+Merge\+With\+Tile()}{canMergeWithTile()}}
+{\footnotesize\ttfamily bool Number\+Tile\+::can\+Merge\+With\+Tile (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Attempts to merge this tile into the given tile and return a bool indicating if this was successful.
+
+t The \hyperlink{classNumberTile}{Number\+Tile} to merge into. \begin{DoxyReturn}{Returns}
+merge\+Successful Value indicating whether the merge was a success and the tile can be deleted, with a failure indicating that this tile should instead be places next to t. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}\label{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}} 
+\index{Number\+Tile@{Number\+Tile}!can\+Move\+Horizontal@{can\+Move\+Horizontal}}
+\index{can\+Move\+Horizontal@{can\+Move\+Horizontal}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Horizontal()}{canMoveHorizontal()}}
+{\footnotesize\ttfamily virtual bool Number\+Tile\+::can\+Move\+Horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Determine if tile can move horizontally.
+
+\begin{DoxyReturn}{Returns}
+Decide if move is possible. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classVerticalMoveTile_ae1b1eb1882bb9f0ef5087db7f0e28ff7}{Vertical\+Move\+Tile}, \hyperlink{classHorizontalMoveTile_a28190ca8a5b31cc9a0e5de65aa8f1e24}{Horizontal\+Move\+Tile}, and \hyperlink{classFreeMoveTile_a555dfcec6439252ccfa3bfcea97614ca}{Free\+Move\+Tile}.
+
+\mbox{\Hypertarget{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}\label{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}} 
+\index{Number\+Tile@{Number\+Tile}!can\+Move\+Vertical@{can\+Move\+Vertical}}
+\index{can\+Move\+Vertical@{can\+Move\+Vertical}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Vertical()}{canMoveVertical()}}
+{\footnotesize\ttfamily virtual bool Number\+Tile\+::can\+Move\+Vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Determine if tile can move vertically.
+
+\begin{DoxyReturn}{Returns}
+Decide if move is possible 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classVerticalMoveTile_abbc40894fa875cd906bb348a59ef422e}{Vertical\+Move\+Tile}, \hyperlink{classHorizontalMoveTile_abd31838d18114a797dd84d47bae574c2}{Horizontal\+Move\+Tile}, and \hyperlink{classFreeMoveTile_a11888ab38ac9a81f557a490cbca3990c}{Free\+Move\+Tile}.
+
+\mbox{\Hypertarget{classNumberTile_ade182f6db206f66401486997cb31ee01}\label{classNumberTile_ade182f6db206f66401486997cb31ee01}} 
+\index{Number\+Tile@{Number\+Tile}!get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}}
+\index{get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+Combined\+Tile\+Type()}{getCombinedTileType()}}
+{\footnotesize\ttfamily virtual string Number\+Tile\+::get\+Combined\+Tile\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Gets the combined new Tile type Vertical or Horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The Tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classVerticalMoveTile_a8a850a4df774c6132f20806ed531555a}{Vertical\+Move\+Tile}, \hyperlink{classHorizontalMoveTile_a90f17bebf2e3eb4ccdf20cd9b5c2bab6}{Horizontal\+Move\+Tile}, and \hyperlink{classFreeMoveTile_a4a0fa3466191647164cd39a5f4af4f29}{Free\+Move\+Tile}.
+
+\mbox{\Hypertarget{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}\label{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}} 
+\index{Number\+Tile@{Number\+Tile}!get\+Console\+Icon@{get\+Console\+Icon}}
+\index{get\+Console\+Icon@{get\+Console\+Icon}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+Console\+Icon()}{getConsoleIcon()}}
+{\footnotesize\ttfamily string Number\+Tile\+::get\+Console\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile icons textual representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classVerticalMoveTile_a0f313f3ba4d1cef0f91f7accd38a93ed}{Vertical\+Move\+Tile}, \hyperlink{classHorizontalMoveTile_a54bd2825da287bde0e9d1ab589c6af19}{Horizontal\+Move\+Tile}, and \hyperlink{classFreeMoveTile_a4cd6edaab63c439f1691300afb425c9a}{Free\+Move\+Tile}.
+
+\mbox{\Hypertarget{classNumberTile_aea8171fadfd8e145fdbbb8f0f757c52e}\label{classNumberTile_aea8171fadfd8e145fdbbb8f0f757c52e}} 
+\index{Number\+Tile@{Number\+Tile}!get\+Tile\+Type@{get\+Tile\+Type}}
+\index{get\+Tile\+Type@{get\+Tile\+Type}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+Tile\+Type()}{getTileType()}}
+{\footnotesize\ttfamily string Number\+Tile\+::get\+Tile\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Tile Type.
+
+\begin{DoxyReturn}{Returns}
+The Tile type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNumberTile_a7a870508ad2bfbf3e5de48b49db58a56}\label{classNumberTile_a7a870508ad2bfbf3e5de48b49db58a56}} 
+\index{Number\+Tile@{Number\+Tile}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily int Number\+Tile\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the value of Tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the Tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNumberTile_a20819d16d4d00620c81cd44a56a6452b}\label{classNumberTile_a20819d16d4d00620c81cd44a56a6452b}} 
+\index{Number\+Tile@{Number\+Tile}!getX@{getX}}
+\index{getX@{getX}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+X()}{getX()}}
+{\footnotesize\ttfamily int Number\+Tile\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get X coordinate of tile.
+
+\begin{DoxyReturn}{Returns}
+x coordinate value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNumberTile_a9c827ee17536bc5f0caeca36c7f6e48c}\label{classNumberTile_a9c827ee17536bc5f0caeca36c7f6e48c}} 
+\index{Number\+Tile@{Number\+Tile}!getY@{getY}}
+\index{getY@{getY}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{get\+Y()}{getY()}}
+{\footnotesize\ttfamily int Number\+Tile\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Y coordinate of tile.
+
+\begin{DoxyReturn}{Returns}
+y coordinate value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNumberTile_aee2c091b10b1c2f457003c59ad233535}\label{classNumberTile_aee2c091b10b1c2f457003c59ad233535}} 
+\index{Number\+Tile@{Number\+Tile}!set\+Tile\+Type@{set\+Tile\+Type}}
+\index{set\+Tile\+Type@{set\+Tile\+Type}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{set\+Tile\+Type()}{setTileType()}}
+{\footnotesize\ttfamily void Number\+Tile\+::set\+Tile\+Type (\begin{DoxyParamCaption}\item[{string}]{new\+Type }\end{DoxyParamCaption})}
+
+Set Tile Type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Type} & The Tile type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNumberTile_afdcd9ba36599ad5c7c8788fdb9d31352}\label{classNumberTile_afdcd9ba36599ad5c7c8788fdb9d31352}} 
+\index{Number\+Tile@{Number\+Tile}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{set\+Value()}{setValue()}}
+{\footnotesize\ttfamily void Number\+Tile\+::set\+Value (\begin{DoxyParamCaption}\item[{int}]{new\+Value }\end{DoxyParamCaption})}
+
+Sets the value of Tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Value} & Value to be assigned. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNumberTile_aaa040ff3410c3722b29af28f8f9752e4}\label{classNumberTile_aaa040ff3410c3722b29af28f8f9752e4}} 
+\index{Number\+Tile@{Number\+Tile}!setX@{setX}}
+\index{setX@{setX}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{set\+X()}{setX()}}
+{\footnotesize\ttfamily void Number\+Tile\+::setX (\begin{DoxyParamCaption}\item[{int}]{newX }\end{DoxyParamCaption})}
+
+Set X coordinate of tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & Value of coordinate. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNumberTile_afbe34f51da300bc1fd9eed4cb9cd47fa}\label{classNumberTile_afbe34f51da300bc1fd9eed4cb9cd47fa}} 
+\index{Number\+Tile@{Number\+Tile}!setY@{setY}}
+\index{setY@{setY}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{set\+Y()}{setY()}}
+{\footnotesize\ttfamily void Number\+Tile\+::setY (\begin{DoxyParamCaption}\item[{int}]{newY }\end{DoxyParamCaption})}
+
+Set Y coordinate of tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em newY} & Value of coordinate. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNumberTile_af33e3c4937201c189e901615816b0e3c}\label{classNumberTile_af33e3c4937201c189e901615816b0e3c}} 
+\index{Number\+Tile@{Number\+Tile}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!Number\+Tile@{Number\+Tile}}
+\subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
+{\footnotesize\ttfamily string Number\+Tile\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Textual representation of tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Textual representation of tile 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Number\+Tile.\+h\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Number\+Tile.\+cpp\end{DoxyCompactItemize}

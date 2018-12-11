@@ -1,0 +1,133 @@
+\hypertarget{classFreeMoveTile}{}\section{Free\+Move\+Tile Class Reference}
+\label{classFreeMoveTile}\index{Free\+Move\+Tile@{Free\+Move\+Tile}}
+
+
+Inheritance diagram for Free\+Move\+Tile\+:
+% FIG 0
+
+
+Collaboration diagram for Free\+Move\+Tile\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFreeMoveTile_a6c4e42233c7dcaad7cf863e701a51eff}{Free\+Move\+Tile} (int x, int y, int value)
+\item 
+bool \hyperlink{classFreeMoveTile_a555dfcec6439252ccfa3bfcea97614ca}{can\+Move\+Horizontal} () const
+\item 
+bool \hyperlink{classFreeMoveTile_a11888ab38ac9a81f557a490cbca3990c}{can\+Move\+Vertical} () const
+\item 
+string \hyperlink{classFreeMoveTile_a4a0fa3466191647164cd39a5f4af4f29}{get\+Combined\+Tile\+Type} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t) const
+\item 
+string \hyperlink{classFreeMoveTile_a4cd6edaab63c439f1691300afb425c9a}{get\+Console\+Icon} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFreeMoveTile_a6c4e42233c7dcaad7cf863e701a51eff}\label{classFreeMoveTile_a6c4e42233c7dcaad7cf863e701a51eff}} 
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\subsubsection{\texorpdfstring{Free\+Move\+Tile()}{FreeMoveTile()}}
+{\footnotesize\ttfamily Free\+Move\+Tile\+::\+Free\+Move\+Tile (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructor\+: Create tile that can only move freely.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & cordinate value on grid. \\
+\hline
+{\em y} & cordinate value on grid. \\
+\hline
+{\em value} & the number Tile should hold. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classFreeMoveTile_a555dfcec6439252ccfa3bfcea97614ca}\label{classFreeMoveTile_a555dfcec6439252ccfa3bfcea97614ca}} 
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!can\+Move\+Horizontal@{can\+Move\+Horizontal}}
+\index{can\+Move\+Horizontal@{can\+Move\+Horizontal}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Horizontal()}{canMoveHorizontal()}}
+{\footnotesize\ttfamily bool Free\+Move\+Tile\+::can\+Move\+Horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determine if tile can move horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}{Number\+Tile}.
+
+\mbox{\Hypertarget{classFreeMoveTile_a11888ab38ac9a81f557a490cbca3990c}\label{classFreeMoveTile_a11888ab38ac9a81f557a490cbca3990c}} 
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!can\+Move\+Vertical@{can\+Move\+Vertical}}
+\index{can\+Move\+Vertical@{can\+Move\+Vertical}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Vertical()}{canMoveVertical()}}
+{\footnotesize\ttfamily bool Free\+Move\+Tile\+::can\+Move\+Vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determine if tile can move vertically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}{Number\+Tile}.
+
+\mbox{\Hypertarget{classFreeMoveTile_a4a0fa3466191647164cd39a5f4af4f29}\label{classFreeMoveTile_a4a0fa3466191647164cd39a5f4af4f29}} 
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}}
+\index{get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Combined\+Tile\+Type()}{getCombinedTileType()}}
+{\footnotesize\ttfamily string Free\+Move\+Tile\+::get\+Combined\+Tile\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile type Vertical or Horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The Tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ade182f6db206f66401486997cb31ee01}{Number\+Tile}.
+
+\mbox{\Hypertarget{classFreeMoveTile_a4cd6edaab63c439f1691300afb425c9a}\label{classFreeMoveTile_a4cd6edaab63c439f1691300afb425c9a}} 
+\index{Free\+Move\+Tile@{Free\+Move\+Tile}!get\+Console\+Icon@{get\+Console\+Icon}}
+\index{get\+Console\+Icon@{get\+Console\+Icon}!Free\+Move\+Tile@{Free\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Console\+Icon()}{getConsoleIcon()}}
+{\footnotesize\ttfamily string Free\+Move\+Tile\+::get\+Console\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile icons textual representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}{Number\+Tile}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Free\+Move\+Tile.\+h\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Free\+Move\+Tile.\+cpp\end{DoxyCompactItemize}

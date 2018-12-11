@@ -1,0 +1,133 @@
+\hypertarget{classHorizontalMoveTile}{}\section{Horizontal\+Move\+Tile Class Reference}
+\label{classHorizontalMoveTile}\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+
+
+Inheritance diagram for Horizontal\+Move\+Tile\+:
+% FIG 0
+
+
+Collaboration diagram for Horizontal\+Move\+Tile\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHorizontalMoveTile_abdfd0dd3b6c36f08923c4fb84703c395}{Horizontal\+Move\+Tile} (int x, int y, int value)
+\item 
+bool \hyperlink{classHorizontalMoveTile_a28190ca8a5b31cc9a0e5de65aa8f1e24}{can\+Move\+Horizontal} () const
+\item 
+bool \hyperlink{classHorizontalMoveTile_abd31838d18114a797dd84d47bae574c2}{can\+Move\+Vertical} () const
+\item 
+string \hyperlink{classHorizontalMoveTile_a90f17bebf2e3eb4ccdf20cd9b5c2bab6}{get\+Combined\+Tile\+Type} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t) const
+\item 
+string \hyperlink{classHorizontalMoveTile_a54bd2825da287bde0e9d1ab589c6af19}{get\+Console\+Icon} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHorizontalMoveTile_abdfd0dd3b6c36f08923c4fb84703c395}\label{classHorizontalMoveTile_abdfd0dd3b6c36f08923c4fb84703c395}} 
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\subsubsection{\texorpdfstring{Horizontal\+Move\+Tile()}{HorizontalMoveTile()}}
+{\footnotesize\ttfamily Horizontal\+Move\+Tile\+::\+Horizontal\+Move\+Tile (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructor\+: Create tile that can only move horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & cordinate value on grid. \\
+\hline
+{\em y} & cordinate value on grid. \\
+\hline
+{\em value} & the number Tile should hold. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHorizontalMoveTile_a28190ca8a5b31cc9a0e5de65aa8f1e24}\label{classHorizontalMoveTile_a28190ca8a5b31cc9a0e5de65aa8f1e24}} 
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!can\+Move\+Horizontal@{can\+Move\+Horizontal}}
+\index{can\+Move\+Horizontal@{can\+Move\+Horizontal}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Horizontal()}{canMoveHorizontal()}}
+{\footnotesize\ttfamily bool Horizontal\+Move\+Tile\+::can\+Move\+Horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determine if tile can move horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}{Number\+Tile}.
+
+\mbox{\Hypertarget{classHorizontalMoveTile_abd31838d18114a797dd84d47bae574c2}\label{classHorizontalMoveTile_abd31838d18114a797dd84d47bae574c2}} 
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!can\+Move\+Vertical@{can\+Move\+Vertical}}
+\index{can\+Move\+Vertical@{can\+Move\+Vertical}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Vertical()}{canMoveVertical()}}
+{\footnotesize\ttfamily bool Horizontal\+Move\+Tile\+::can\+Move\+Vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determine if tile can move vertically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}{Number\+Tile}.
+
+\mbox{\Hypertarget{classHorizontalMoveTile_a90f17bebf2e3eb4ccdf20cd9b5c2bab6}\label{classHorizontalMoveTile_a90f17bebf2e3eb4ccdf20cd9b5c2bab6}} 
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}}
+\index{get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Combined\+Tile\+Type()}{getCombinedTileType()}}
+{\footnotesize\ttfamily string Horizontal\+Move\+Tile\+::get\+Combined\+Tile\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile type Vertical or Horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The Tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ade182f6db206f66401486997cb31ee01}{Number\+Tile}.
+
+\mbox{\Hypertarget{classHorizontalMoveTile_a54bd2825da287bde0e9d1ab589c6af19}\label{classHorizontalMoveTile_a54bd2825da287bde0e9d1ab589c6af19}} 
+\index{Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}!get\+Console\+Icon@{get\+Console\+Icon}}
+\index{get\+Console\+Icon@{get\+Console\+Icon}!Horizontal\+Move\+Tile@{Horizontal\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Console\+Icon()}{getConsoleIcon()}}
+{\footnotesize\ttfamily string Horizontal\+Move\+Tile\+::get\+Console\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile icons textual representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}{Number\+Tile}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Horizontal\+Move\+Tile.\+h\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Horizontal\+Move\+Tile.\+cpp\end{DoxyCompactItemize}

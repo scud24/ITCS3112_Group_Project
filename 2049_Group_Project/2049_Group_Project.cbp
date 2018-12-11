@@ -32,7 +32,28 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add library="fltk" />
+			<Add library="fltk_images" />
+		</Linker>
+		<Unit filename="2049_Group_Project.depend" />
+		<Unit filename="2049_Group_Project.layout" />
+		<Unit filename="FreeMoveTile.cpp" />
+		<Unit filename="FreeMoveTile.h" />
+		<Unit filename="HorizontalMoveTile.cpp" />
+		<Unit filename="HorizontalMoveTile.h" />
+		<Unit filename="NumberTile.cpp" />
+		<Unit filename="NumberTile.h" />
+		<Unit filename="TileGrid.cpp" />
+		<Unit filename="TileGrid.h" />
+		<Unit filename="VerticalMoveTile.cpp" />
+		<Unit filename="VerticalMoveTile.h" />
+		<Unit filename="doggy2.jpg" />
+		<Unit filename="freemove.png" />
+		<Unit filename="grid320.png" />
+		<Unit filename="horizontal.png" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vertical.png" />
 		<Extensions>
 			<code_completion />
 			<debugger />

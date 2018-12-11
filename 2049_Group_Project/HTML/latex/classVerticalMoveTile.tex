@@ -1,0 +1,143 @@
+\hypertarget{classVerticalMoveTile}{}\section{Vertical\+Move\+Tile Class Reference}
+\label{classVerticalMoveTile}\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+
+
+Inheritance diagram for Vertical\+Move\+Tile\+:
+% FIG 0
+
+
+Collaboration diagram for Vertical\+Move\+Tile\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVerticalMoveTile_aa38dec011e680ebd679cddf96afcf695}{Vertical\+Move\+Tile} (int x, int y, int value)
+\item 
+bool \hyperlink{classVerticalMoveTile_ae1b1eb1882bb9f0ef5087db7f0e28ff7}{can\+Move\+Horizontal} () const
+\item 
+bool \hyperlink{classVerticalMoveTile_abbc40894fa875cd906bb348a59ef422e}{can\+Move\+Vertical} () const
+\item 
+string \hyperlink{classVerticalMoveTile_a8a850a4df774c6132f20806ed531555a}{get\+Combined\+Tile\+Type} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t) const
+\item 
+string \hyperlink{classVerticalMoveTile_a0f313f3ba4d1cef0f91f7accd38a93ed}{get\+Console\+Icon} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVerticalMoveTile_aa38dec011e680ebd679cddf96afcf695}\label{classVerticalMoveTile_aa38dec011e680ebd679cddf96afcf695}} 
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\subsubsection{\texorpdfstring{Vertical\+Move\+Tile()}{VerticalMoveTile()}}
+{\footnotesize\ttfamily Vertical\+Move\+Tile\+::\+Vertical\+Move\+Tile (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructor\+: Gives Tile the coordinates on grid and value to hold.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & cordinate value on grid. \\
+\hline
+{\em y} & cordinate value on grid. \\
+\hline
+{\em value} & the number Tile should hold. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classVerticalMoveTile_ae1b1eb1882bb9f0ef5087db7f0e28ff7}\label{classVerticalMoveTile_ae1b1eb1882bb9f0ef5087db7f0e28ff7}} 
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!can\+Move\+Horizontal@{can\+Move\+Horizontal}}
+\index{can\+Move\+Horizontal@{can\+Move\+Horizontal}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Horizontal()}{canMoveHorizontal()}}
+{\footnotesize\ttfamily bool Vertical\+Move\+Tile\+::can\+Move\+Horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Decide wether Tile can be moved Horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_a8bb3cae68a03d39d112ae41e69c5a489}{Number\+Tile}.
+
+\mbox{\Hypertarget{classVerticalMoveTile_abbc40894fa875cd906bb348a59ef422e}\label{classVerticalMoveTile_abbc40894fa875cd906bb348a59ef422e}} 
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!can\+Move\+Vertical@{can\+Move\+Vertical}}
+\index{can\+Move\+Vertical@{can\+Move\+Vertical}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\subsubsection{\texorpdfstring{can\+Move\+Vertical()}{canMoveVertical()}}
+{\footnotesize\ttfamily bool Vertical\+Move\+Tile\+::can\+Move\+Vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Decide wether Tile can be moved Vertically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False for the move. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ae1480ce67b65e0144fb9eb5fa56818ed}{Number\+Tile}.
+
+\mbox{\Hypertarget{classVerticalMoveTile_a8a850a4df774c6132f20806ed531555a}\label{classVerticalMoveTile_a8a850a4df774c6132f20806ed531555a}} 
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}}
+\index{get\+Combined\+Tile\+Type@{get\+Combined\+Tile\+Type}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Combined\+Tile\+Type()}{getCombinedTileType()}}
+{\footnotesize\ttfamily string Vertical\+Move\+Tile\+::get\+Combined\+Tile\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile type Vertical or Horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The Tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type.
+\end{DoxyReturn}
+Gets the Tile type Vertical or horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The Tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classNumberTile_ade182f6db206f66401486997cb31ee01}{Number\+Tile}.
+
+\mbox{\Hypertarget{classVerticalMoveTile_a0f313f3ba4d1cef0f91f7accd38a93ed}\label{classVerticalMoveTile_a0f313f3ba4d1cef0f91f7accd38a93ed}} 
+\index{Vertical\+Move\+Tile@{Vertical\+Move\+Tile}!get\+Console\+Icon@{get\+Console\+Icon}}
+\index{get\+Console\+Icon@{get\+Console\+Icon}!Vertical\+Move\+Tile@{Vertical\+Move\+Tile}}
+\subsubsection{\texorpdfstring{get\+Console\+Icon()}{getConsoleIcon()}}
+{\footnotesize\ttfamily string Vertical\+Move\+Tile\+::get\+Console\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the Tile icons textual representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String denoting the Tile type. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classNumberTile_a33a9dad43334d12c5b3842f1a45b1b66}{Number\+Tile}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Vertical\+Move\+Tile.\+h\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Vertical\+Move\+Tile.\+cpp\end{DoxyCompactItemize}

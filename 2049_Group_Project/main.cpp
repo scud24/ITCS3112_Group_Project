@@ -54,15 +54,7 @@ static void playButton_callback(Fl_Widget* obj, void* w)
         exitGame = !tg->runGUI();
         cout << "gui returned to main- " << exitGame << endl;
 
-        /*cout << "Game finished check" << endl;
-        if(tg->checkForWinner())
-        {
-            exitGame =!fl_ask("You won!!! Play again?");
-        }
-        else
-        {
-            exitGame =!fl_ask("You lost! Play again?");
-        }*/
+
 
     }
 
@@ -98,31 +90,32 @@ int main()
     if(runInGUIMode)
     {
         cout << "Run GUI start" << endl;
+
+        //Declare prompt window options
         Fl_Window *replayWindow;
         Fl_Box *promptBox;
-
         Fl_Button *playButton;
         Fl_Button *exitButton;
 
+        //Create GUI prompt for user
         replayWindow = new Fl_Window (300, 200);
-        //replayWindow->callback(( Fl_Callback* ) , replayWindow);
-        promptBox = new Fl_Box (50, 50, 200, 100, "2049");
+        promptBox = new Fl_Box (50, 50, 200, 100, "4096");
         promptBox->box (FL_UP_BOX);
         promptBox->align(FL_ALIGN_TOP);
         promptBox->labelsize (36);
         promptBox->labelfont (FL_BOLD+FL_ITALIC);
         promptBox->labeltype (FL_SHADOW_LABEL);
-
         playButton = new Fl_Button( 50, 55, 200, 40, "Play Game" );
         playButton->callback(( Fl_Callback* ) playButton_callback, replayWindow);
         exitButton = new Fl_Button( 50, 100, 200, 40, "Exit" );
         exitButton->callback(( Fl_Callback* ) exitButton_callback, replayWindow);
-        //tg->drawGUI();
 
 
 
         replayWindow->end ();
         replayWindow->show ();
+
+        //Information
         cout << "Run GUI end" << endl;
         Fl::run();
         cout << "past fl run" << endl;
@@ -210,7 +203,7 @@ int main()
 
 
 
-
+    // Information
     cout << endl << "Thanks for playing!" << endl;
 
 

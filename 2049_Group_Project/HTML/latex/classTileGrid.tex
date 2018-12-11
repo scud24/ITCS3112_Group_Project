@@ -1,0 +1,462 @@
+\hypertarget{classTileGrid}{}\section{Tile\+Grid Class Reference}
+\label{classTileGrid}\index{Tile\+Grid@{Tile\+Grid}}
+
+
+Collaboration diagram for Tile\+Grid\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTileGrid_ad275d9124d5485bfc88adb3626089fdf}{Tile\+Grid} (int w, int h)
+\item 
+void \hyperlink{classTileGrid_a3da76928cfce1d715cefde4c80759187}{draw\+Grid} ()
+\item 
+bool \hyperlink{classTileGrid_a787046588114e5a17a2869113e53b35d}{draw\+G\+UI} ()
+\item 
+void \hyperlink{classTileGrid_a24ab97ce925a5bbdd467c7d91d2d28c7}{list\+Active\+Tiles} ()
+\item 
+void \hyperlink{classTileGrid_a96339e9ad2afee46b58ec68ceb8f417c}{clear\+Tiles} ()
+\item 
+void \hyperlink{classTileGrid_a237a5a05afb632cc9b59f1f490a42803}{add\+Tile} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$t)
+\item 
+void \hyperlink{classTileGrid_ab9e350d439063b8286237b5b1c976590}{move\+Tiles\+Horizontal} (int dir)
+\item 
+void \hyperlink{classTileGrid_a12cda2e17c1fa615d056aee8d523c708}{move\+Tiles\+Vertical} (int dir)
+\item 
+int \hyperlink{classTileGrid_a2743c957717c63450c060b160b8132b1}{get\+Num\+Active\+Tiles} ()
+\item 
+\hyperlink{classNumberTile}{Number\+Tile} $\ast$ \hyperlink{classTileGrid_a2662d958559018aa7f49d7153922c6af}{get\+Tile\+At\+Location} (int x, int y)
+\item 
+int \hyperlink{classTileGrid_a4e42ec67975cf1be6cac85df311b8bae}{get\+Tile\+Index\+By\+Location} (int x, int y)
+\item 
+\hyperlink{classNumberTile}{Number\+Tile} $\ast$ \hyperlink{classTileGrid_a2edc90ec1238786d746f8db1219ca056}{combine\+Tiles} (\hyperlink{classNumberTile}{Number\+Tile} $\ast$a, \hyperlink{classNumberTile}{Number\+Tile} $\ast$b)
+\item 
+void \hyperlink{classTileGrid_ab5e670e6b91d87ea12237d25f65b5f2a}{remove\+Tile\+At\+Index} (int index)
+\item 
+void \hyperlink{classTileGrid_a01cbaad58637ed2a500beebc1ff784eb}{spawn\+Random\+Tile} ()
+\item 
+bool \hyperlink{classTileGrid_a3840454c31ff44ab61a8afdc66ddb97d}{check\+For\+Winner} ()
+\item 
+bool \hyperlink{classTileGrid_aab03be042d185457b04d9468952df68f}{check\+If\+Game\+Over} ()
+\item 
+bool \hyperlink{classTileGrid_a599c5125eee64b38972ad27027ab3def}{run\+G\+UI} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classTileGrid_aa50de7f1238128fea9f07d7f5bd4b492}{up\+Button\+\_\+callback} (Fl\+\_\+\+Widget $\ast$obj, void $\ast$)
+\item 
+static void \hyperlink{classTileGrid_a6c2e41e7f4ed1a6872c712155ef99888}{down\+Button\+\_\+callback} (Fl\+\_\+\+Widget $\ast$obj, void $\ast$)
+\item 
+static void \hyperlink{classTileGrid_a8166f451ae77dcf4015cefbe2cc72a74}{left\+Button\+\_\+callback} (Fl\+\_\+\+Widget $\ast$obj, void $\ast$)
+\item 
+static void \hyperlink{classTileGrid_a2f95e4a1e0111c81c7eea715dd8cf030}{right\+Button\+\_\+callback} (Fl\+\_\+\+Widget $\ast$obj, void $\ast$)
+\item 
+static void \hyperlink{classTileGrid_a7c598f748da8a08d0bf2ef1d35d50fea}{game\+Window\+\_\+callback} (Fl\+\_\+\+Widget $\ast$obj, void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTileGrid_af2ee61ae41650ffb93fc4b6975e3143a}\label{classTileGrid_af2ee61ae41650ffb93fc4b6975e3143a}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{classTileGrid_a4cd5d4b76ead1a32439d01c256bbd9bb}\label{classTileGrid_a4cd5d4b76ead1a32439d01c256bbd9bb}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{classTileGrid_a1afb95636a0becac452f9462640b1cb0}\label{classTileGrid_a1afb95636a0becac452f9462640b1cb0}} 
+int {\bfseries active\+Tiles}
+\item 
+\mbox{\Hypertarget{classTileGrid_a54b6e7b72eb56b767d785f2569d61e25}\label{classTileGrid_a54b6e7b72eb56b767d785f2569d61e25}} 
+bool {\bfseries gui\+Started}
+\item 
+\mbox{\Hypertarget{classTileGrid_a9510cd976917a1b2de3f77e6e5438c38}\label{classTileGrid_a9510cd976917a1b2de3f77e6e5438c38}} 
+\hyperlink{classNumberTile}{Number\+Tile} $\ast$$\ast$ {\bfseries tg}
+\item 
+\mbox{\Hypertarget{classTileGrid_afe896c32e37e451e29404de577241af9}\label{classTileGrid_afe896c32e37e451e29404de577241af9}} 
+Fl\+\_\+\+P\+N\+G\+\_\+\+Image $\ast$ {\bfseries vertical\+Tile\+Image}
+\item 
+\mbox{\Hypertarget{classTileGrid_ab79e54ec1fe7b95b190fe9d01be70835}\label{classTileGrid_ab79e54ec1fe7b95b190fe9d01be70835}} 
+Fl\+\_\+\+P\+N\+G\+\_\+\+Image $\ast$ {\bfseries horizontal\+Tile\+Image}
+\item 
+\mbox{\Hypertarget{classTileGrid_a7d96403e75a06c2a71762e3db7a1140d}\label{classTileGrid_a7d96403e75a06c2a71762e3db7a1140d}} 
+Fl\+\_\+\+P\+N\+G\+\_\+\+Image $\ast$ {\bfseries freemove\+Tile\+Image}
+\item 
+\mbox{\Hypertarget{classTileGrid_a16d95a658fc80ae8df57857c0fef3650}\label{classTileGrid_a16d95a658fc80ae8df57857c0fef3650}} 
+Fl\+\_\+\+P\+N\+G\+\_\+\+Image $\ast$ {\bfseries grid\+Image}
+\item 
+\mbox{\Hypertarget{classTileGrid_a8cc869dec35105d7f9364dd7e409b5cd}\label{classTileGrid_a8cc869dec35105d7f9364dd7e409b5cd}} 
+Fl\+\_\+\+Window $\ast$ {\bfseries window}
+\item 
+\mbox{\Hypertarget{classTileGrid_a96fc578c503bd377b75c146dc4d7e91d}\label{classTileGrid_a96fc578c503bd377b75c146dc4d7e91d}} 
+Fl\+\_\+\+Box $\ast$ {\bfseries title\+Box}
+\item 
+\mbox{\Hypertarget{classTileGrid_aaf8e6844a472e84db0a1cec80f126938}\label{classTileGrid_aaf8e6844a472e84db0a1cec80f126938}} 
+Fl\+\_\+\+Box $\ast$ {\bfseries grid\+Box}
+\item 
+\mbox{\Hypertarget{classTileGrid_a28431043e3be25a27176978ee634b115}\label{classTileGrid_a28431043e3be25a27176978ee634b115}} 
+Fl\+\_\+\+Button $\ast$ {\bfseries up\+Button}
+\item 
+\mbox{\Hypertarget{classTileGrid_ae46d0bee32c65dd3195fc940a9f81636}\label{classTileGrid_ae46d0bee32c65dd3195fc940a9f81636}} 
+Fl\+\_\+\+Button $\ast$ {\bfseries down\+Button}
+\item 
+\mbox{\Hypertarget{classTileGrid_ad5c75de924cd8dc3d9a1bf52c0c17a6d}\label{classTileGrid_ad5c75de924cd8dc3d9a1bf52c0c17a6d}} 
+Fl\+\_\+\+Button $\ast$ {\bfseries left\+Button}
+\item 
+\mbox{\Hypertarget{classTileGrid_a6af4f8931ff56ceed79cce0bf6d001d8}\label{classTileGrid_a6af4f8931ff56ceed79cce0bf6d001d8}} 
+Fl\+\_\+\+Button $\ast$ {\bfseries right\+Button}
+\item 
+\mbox{\Hypertarget{classTileGrid_a935b3f2d9db3dd44eed34ab31f291ba8}\label{classTileGrid_a935b3f2d9db3dd44eed34ab31f291ba8}} 
+Fl\+\_\+\+Box $\ast$ {\bfseries instruction\+Box}
+\item 
+\mbox{\Hypertarget{classTileGrid_acbe596c40014c6d7971cc314baaa244e}\label{classTileGrid_acbe596c40014c6d7971cc314baaa244e}} 
+Fl\+\_\+\+Box $\ast$$\ast$ {\bfseries draw\+Tiles}
+\item 
+\mbox{\Hypertarget{classTileGrid_ade666c1042d338d9cae97e0f39d5bcf3}\label{classTileGrid_ade666c1042d338d9cae97e0f39d5bcf3}} 
+bool {\bfseries won\+Game}
+\item 
+\mbox{\Hypertarget{classTileGrid_a490e7d9862c8bcfefb2f9d756f08e113}\label{classTileGrid_a490e7d9862c8bcfefb2f9d756f08e113}} 
+bool {\bfseries game\+Over}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTileGrid_ad275d9124d5485bfc88adb3626089fdf}\label{classTileGrid_ad275d9124d5485bfc88adb3626089fdf}} 
+\index{Tile\+Grid@{Tile\+Grid}!Tile\+Grid@{Tile\+Grid}}
+\index{Tile\+Grid@{Tile\+Grid}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{Tile\+Grid()}{TileGrid()}}
+{\footnotesize\ttfamily Tile\+Grid\+::\+Tile\+Grid (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+Constructor\+: Creates grid based on the dimensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Width of the grid. \\
+\hline
+{\em h} & Height of the grid. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTileGrid_a237a5a05afb632cc9b59f1f490a42803}\label{classTileGrid_a237a5a05afb632cc9b59f1f490a42803}} 
+\index{Tile\+Grid@{Tile\+Grid}!add\+Tile@{add\+Tile}}
+\index{add\+Tile@{add\+Tile}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{add\+Tile()}{addTile()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::add\+Tile (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Adds Tile to the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The new tile to be added.\\
+\hline
+\end{DoxyParams}
+Adds Tile to the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The new tile to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a3840454c31ff44ab61a8afdc66ddb97d}\label{classTileGrid_a3840454c31ff44ab61a8afdc66ddb97d}} 
+\index{Tile\+Grid@{Tile\+Grid}!check\+For\+Winner@{check\+For\+Winner}}
+\index{check\+For\+Winner@{check\+For\+Winner}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{check\+For\+Winner()}{checkForWinner()}}
+{\footnotesize\ttfamily bool Tile\+Grid\+::check\+For\+Winner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if game has been won-\/ i.\+e. if player has created a 2048 value tile;
+
+\begin{DoxyReturn}{Returns}
+whether game has been won 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_aab03be042d185457b04d9468952df68f}\label{classTileGrid_aab03be042d185457b04d9468952df68f}} 
+\index{Tile\+Grid@{Tile\+Grid}!check\+If\+Game\+Over@{check\+If\+Game\+Over}}
+\index{check\+If\+Game\+Over@{check\+If\+Game\+Over}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{check\+If\+Game\+Over()}{checkIfGameOver()}}
+{\footnotesize\ttfamily bool Tile\+Grid\+::check\+If\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks if all grid spots are full and if so indicates that the game has been lost
+
+\begin{DoxyReturn}{Returns}
+whether game has been lost 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a96339e9ad2afee46b58ec68ceb8f417c}\label{classTileGrid_a96339e9ad2afee46b58ec68ceb8f417c}} 
+\index{Tile\+Grid@{Tile\+Grid}!clear\+Tiles@{clear\+Tiles}}
+\index{clear\+Tiles@{clear\+Tiles}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{clear\+Tiles()}{clearTiles()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::clear\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clears the grid\textquotesingle{}s list of current tile.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & Clears the grid\textquotesingle{}s list of current tile\\
+\hline
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a2edc90ec1238786d746f8db1219ca056}\label{classTileGrid_a2edc90ec1238786d746f8db1219ca056}} 
+\index{Tile\+Grid@{Tile\+Grid}!combine\+Tiles@{combine\+Tiles}}
+\index{combine\+Tiles@{combine\+Tiles}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{combine\+Tiles()}{combineTiles()}}
+{\footnotesize\ttfamily \hyperlink{classNumberTile}{Number\+Tile} $\ast$ Tile\+Grid\+::combine\+Tiles (\begin{DoxyParamCaption}\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{a,  }\item[{\hyperlink{classNumberTile}{Number\+Tile} $\ast$}]{b }\end{DoxyParamCaption})}
+
+Combines Tiles together.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First tile. \\
+\hline
+{\em b} & Second tile. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a6c2e41e7f4ed1a6872c712155ef99888}\label{classTileGrid_a6c2e41e7f4ed1a6872c712155ef99888}} 
+\index{Tile\+Grid@{Tile\+Grid}!down\+Button\+\_\+callback@{down\+Button\+\_\+callback}}
+\index{down\+Button\+\_\+callback@{down\+Button\+\_\+callback}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{down\+Button\+\_\+callback()}{downButton\_callback()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::down\+Button\+\_\+callback (\begin{DoxyParamCaption}\item[{Fl\+\_\+\+Widget $\ast$}]{obj,  }\item[{void $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles input from the down button
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & object callback originated from \\
+\hline
+{\em other} & target of callback event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a3da76928cfce1d715cefde4c80759187}\label{classTileGrid_a3da76928cfce1d715cefde4c80759187}} 
+\index{Tile\+Grid@{Tile\+Grid}!draw\+Grid@{draw\+Grid}}
+\index{draw\+Grid@{draw\+Grid}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{draw\+Grid()}{drawGrid()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::draw\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints a symbolic representation of the game board to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a787046588114e5a17a2869113e53b35d}\label{classTileGrid_a787046588114e5a17a2869113e53b35d}} 
+\index{Tile\+Grid@{Tile\+Grid}!draw\+G\+UI@{draw\+G\+UI}}
+\index{draw\+G\+UI@{draw\+G\+UI}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{draw\+G\+U\+I()}{drawGUI()}}
+{\footnotesize\ttfamily bool Tile\+Grid\+::draw\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates G\+UI grid based on game status.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wether to draw the G\+UI 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a7c598f748da8a08d0bf2ef1d35d50fea}\label{classTileGrid_a7c598f748da8a08d0bf2ef1d35d50fea}} 
+\index{Tile\+Grid@{Tile\+Grid}!game\+Window\+\_\+callback@{game\+Window\+\_\+callback}}
+\index{game\+Window\+\_\+callback@{game\+Window\+\_\+callback}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{game\+Window\+\_\+callback()}{gameWindow\_callback()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::game\+Window\+\_\+callback (\begin{DoxyParamCaption}\item[{Fl\+\_\+\+Widget $\ast$}]{obj,  }\item[{void $\ast$}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles close of the window
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & object callback originated from \\
+\hline
+{\em other} & target of callback event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a2743c957717c63450c060b160b8132b1}\label{classTileGrid_a2743c957717c63450c060b160b8132b1}} 
+\index{Tile\+Grid@{Tile\+Grid}!get\+Num\+Active\+Tiles@{get\+Num\+Active\+Tiles}}
+\index{get\+Num\+Active\+Tiles@{get\+Num\+Active\+Tiles}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{get\+Num\+Active\+Tiles()}{getNumActiveTiles()}}
+{\footnotesize\ttfamily int Tile\+Grid\+::get\+Num\+Active\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the total number of active tiles on console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total number of Tiles. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a2662d958559018aa7f49d7153922c6af}\label{classTileGrid_a2662d958559018aa7f49d7153922c6af}} 
+\index{Tile\+Grid@{Tile\+Grid}!get\+Tile\+At\+Location@{get\+Tile\+At\+Location}}
+\index{get\+Tile\+At\+Location@{get\+Tile\+At\+Location}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{get\+Tile\+At\+Location()}{getTileAtLocation()}}
+{\footnotesize\ttfamily \hyperlink{classNumberTile}{Number\+Tile} $\ast$ Tile\+Grid\+::get\+Tile\+At\+Location (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Gets Tile in grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The coordinate. \\
+\hline
+{\em y} & The coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The requested Tile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a4e42ec67975cf1be6cac85df311b8bae}\label{classTileGrid_a4e42ec67975cf1be6cac85df311b8bae}} 
+\index{Tile\+Grid@{Tile\+Grid}!get\+Tile\+Index\+By\+Location@{get\+Tile\+Index\+By\+Location}}
+\index{get\+Tile\+Index\+By\+Location@{get\+Tile\+Index\+By\+Location}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{get\+Tile\+Index\+By\+Location()}{getTileIndexByLocation()}}
+{\footnotesize\ttfamily int Tile\+Grid\+::get\+Tile\+Index\+By\+Location (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Gets Tile\textquotesingle{}s index in grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The coordinate. \\
+\hline
+{\em y} & The coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The requested Tile index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a8166f451ae77dcf4015cefbe2cc72a74}\label{classTileGrid_a8166f451ae77dcf4015cefbe2cc72a74}} 
+\index{Tile\+Grid@{Tile\+Grid}!left\+Button\+\_\+callback@{left\+Button\+\_\+callback}}
+\index{left\+Button\+\_\+callback@{left\+Button\+\_\+callback}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{left\+Button\+\_\+callback()}{leftButton\_callback()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::left\+Button\+\_\+callback (\begin{DoxyParamCaption}\item[{Fl\+\_\+\+Widget $\ast$}]{obj,  }\item[{void $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles input from the left button
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & object callback originated from \\
+\hline
+{\em other} & target of callback event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a24ab97ce925a5bbdd467c7d91d2d28c7}\label{classTileGrid_a24ab97ce925a5bbdd467c7d91d2d28c7}} 
+\index{Tile\+Grid@{Tile\+Grid}!list\+Active\+Tiles@{list\+Active\+Tiles}}
+\index{list\+Active\+Tiles@{list\+Active\+Tiles}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{list\+Active\+Tiles()}{listActiveTiles()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::list\+Active\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lists all active tiles in the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & Lists all active tiles in the console\\
+\hline
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_ab9e350d439063b8286237b5b1c976590}\label{classTileGrid_ab9e350d439063b8286237b5b1c976590}} 
+\index{Tile\+Grid@{Tile\+Grid}!move\+Tiles\+Horizontal@{move\+Tiles\+Horizontal}}
+\index{move\+Tiles\+Horizontal@{move\+Tiles\+Horizontal}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{move\+Tiles\+Horizontal()}{moveTilesHorizontal()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::move\+Tiles\+Horizontal (\begin{DoxyParamCaption}\item[{int}]{dir }\end{DoxyParamCaption})}
+
+Moves Tile horizontally.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The distance to move the Tile. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a12cda2e17c1fa615d056aee8d523c708}\label{classTileGrid_a12cda2e17c1fa615d056aee8d523c708}} 
+\index{Tile\+Grid@{Tile\+Grid}!move\+Tiles\+Vertical@{move\+Tiles\+Vertical}}
+\index{move\+Tiles\+Vertical@{move\+Tiles\+Vertical}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{move\+Tiles\+Vertical()}{moveTilesVertical()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::move\+Tiles\+Vertical (\begin{DoxyParamCaption}\item[{int}]{dir }\end{DoxyParamCaption})}
+
+Moves Tile Vertically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The distance to move the Tile. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_ab5e670e6b91d87ea12237d25f65b5f2a}\label{classTileGrid_ab5e670e6b91d87ea12237d25f65b5f2a}} 
+\index{Tile\+Grid@{Tile\+Grid}!remove\+Tile\+At\+Index@{remove\+Tile\+At\+Index}}
+\index{remove\+Tile\+At\+Index@{remove\+Tile\+At\+Index}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{remove\+Tile\+At\+Index()}{removeTileAtIndex()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::remove\+Tile\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Removes tile from grid
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The tile\textquotesingle{}s index on grid \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a2f95e4a1e0111c81c7eea715dd8cf030}\label{classTileGrid_a2f95e4a1e0111c81c7eea715dd8cf030}} 
+\index{Tile\+Grid@{Tile\+Grid}!right\+Button\+\_\+callback@{right\+Button\+\_\+callback}}
+\index{right\+Button\+\_\+callback@{right\+Button\+\_\+callback}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{right\+Button\+\_\+callback()}{rightButton\_callback()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::right\+Button\+\_\+callback (\begin{DoxyParamCaption}\item[{Fl\+\_\+\+Widget $\ast$}]{obj,  }\item[{void $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles input from the right button
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & object callback originated from \\
+\hline
+{\em other} & target of callback event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_a599c5125eee64b38972ad27027ab3def}\label{classTileGrid_a599c5125eee64b38972ad27027ab3def}} 
+\index{Tile\+Grid@{Tile\+Grid}!run\+G\+UI@{run\+G\+UI}}
+\index{run\+G\+UI@{run\+G\+UI}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{run\+G\+U\+I()}{runGUI()}}
+{\footnotesize\ttfamily bool Tile\+Grid\+::run\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+G\+UI mode main loop
+
+\begin{DoxyReturn}{Returns}
+whether to play again
+\end{DoxyReturn}
+G\+UI mode main loop
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether to play again 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTileGrid_a01cbaad58637ed2a500beebc1ff784eb}\label{classTileGrid_a01cbaad58637ed2a500beebc1ff784eb}} 
+\index{Tile\+Grid@{Tile\+Grid}!spawn\+Random\+Tile@{spawn\+Random\+Tile}}
+\index{spawn\+Random\+Tile@{spawn\+Random\+Tile}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{spawn\+Random\+Tile()}{spawnRandomTile()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::spawn\+Random\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Spawn a random tile of a random type at a random location
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTileGrid_aa50de7f1238128fea9f07d7f5bd4b492}\label{classTileGrid_aa50de7f1238128fea9f07d7f5bd4b492}} 
+\index{Tile\+Grid@{Tile\+Grid}!up\+Button\+\_\+callback@{up\+Button\+\_\+callback}}
+\index{up\+Button\+\_\+callback@{up\+Button\+\_\+callback}!Tile\+Grid@{Tile\+Grid}}
+\subsubsection{\texorpdfstring{up\+Button\+\_\+callback()}{upButton\_callback()}}
+{\footnotesize\ttfamily void Tile\+Grid\+::up\+Button\+\_\+callback (\begin{DoxyParamCaption}\item[{Fl\+\_\+\+Widget $\ast$}]{obj,  }\item[{void $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles input from the up button
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & object callback originated from \\
+\hline
+{\em other} & target of callback event \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Tile\+Grid.\+h\item 
+/home/user/\+I\+T\+C\+S3112\+\_\+\+Group\+\_\+\+Project-\/master-\/e9c069351e350c9df961656c57a62b3cc22740ee/2049\+\_\+\+Group\+\_\+\+Project/Tile\+Grid.\+cpp\end{DoxyCompactItemize}
