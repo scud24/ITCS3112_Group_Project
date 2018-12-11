@@ -745,17 +745,15 @@ void TileGrid::rightButton_callback(Fl_Widget* obj, void* other)
 }
 
 /**
-    Handles end of game checks for GUI mode
+    Handles close of the window
 
-    @return
+    @param obj object callback originated from
+    @param other target of callback event
 */
 void TileGrid::gameWindow_callback(Fl_Widget* obj, void* w)
 {
-    //cout << "gamewindow callback" << endl;
     Fl_Window* window = (Fl_Window*) w;
-    //cout << "gamewindow callback 2" << endl;
     window->hide();
-    //cout << "gamewindow callback3" << endl;
 }
 
 

@@ -20,6 +20,10 @@
 
 using namespace std;
 
+/**
+  Used to reenable the main menu after the game window is closed
+
+ */
 static void redrawWindow()
 {
     Fl::redraw();
