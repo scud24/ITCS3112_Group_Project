@@ -33,6 +33,7 @@
 #include <FL/Fl_PNG_Image.H>
 #include <FL/fl_draw.H>
 #include <FL/Fl_Button.H>
+#include <FL/fl_ask.H>
 
 using namespace std;
 
@@ -61,10 +62,12 @@ protected:
     Fl_Button *leftButton;
     Fl_Button *rightButton;
 
+
+    Fl_Box *instructionBox;
     Fl_Box **drawTiles;
 
-
-
+    bool wonGame;
+    bool gameOver;
 
 public:
 
@@ -89,7 +92,7 @@ public:
 
         @param none
     */
-    void drawGUI();
+    bool drawGUI();
 
     /**
         Lists all active tiles in the console.
@@ -228,6 +231,29 @@ public:
     @param other target of callback event
     */
     static void rightButton_callback(Fl_Widget* obj, void*);
+
+
+    /**
+    Handles close of the window
+
+    @param obj object callback originated from
+    @param other target of callback event
+    */
+    static void gameWindow_callback(Fl_Widget* obj, void*);
+
+
+    /**
+        Handles player replay checks for GUI mode
+        @return if player wants to play again
+    */
+    bool replayCheckGUI();
+
+    /**
+        GUI mode main loop
+
+        @return whether to play again
+    */
+    bool runGUI();
 
 };
 

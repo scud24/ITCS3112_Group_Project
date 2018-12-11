@@ -27,7 +27,7 @@ using namespace std;
 TileGrid::TileGrid(int w, int h)
     :width(w), height(h)
 {
-
+    activeTiles = 0;
     /* initialize random seed: */
     srand (time(NULL));
 
@@ -38,11 +38,12 @@ TileGrid::TileGrid(int w, int h)
     verticalTileImage = new Fl_PNG_Image("vertical.png");
     horizontalTileImage = new Fl_PNG_Image("horizontal.png");
     freemoveTileImage = new Fl_PNG_Image("freemove.png");
+    cout << getNumActiveTiles() << endl;
 
 
+    window = new Fl_Window (650, 400);
+    window->callback(( Fl_Callback* ) gameWindow_callback, window);
 
-    window = new Fl_Window (600, 400);
-    //window->
     titleBox = new Fl_Box (50, 50, 300, 300, "2049");
     titleBox->box (FL_UP_BOX);
     titleBox->align(FL_ALIGN_TOP);
@@ -53,18 +54,21 @@ TileGrid::TileGrid(int w, int h)
     gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
     gridBox->image(gridImage);
 
-    upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
+    upButton = new Fl_Button( 420, 80, 40, 40, "UP" );
     upButton->callback(( Fl_Callback* ) upButton_callback, this);
-    downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
+    downButton = new Fl_Button( 420, 120, 40, 40, "DOWN" );
     downButton->callback(( Fl_Callback* ) downButton_callback, this);
-    leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
+    leftButton = new Fl_Button( 380, 100, 40, 40, "LEFT" );
     leftButton->callback(( Fl_Callback* ) leftButton_callback, this);
-    rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
+    rightButton = new Fl_Button( 460, 100, 40, 40, "RIGHT" );
     rightButton->callback(( Fl_Callback* ) rightButton_callback, this);
 
-
+    window->show();
     drawTiles = new Fl_Box*[width*height];
 
+    wonGame = false;
+    gameOver = false;
+    cout << "Finished initializing TileGrid" << endl;
 
 }
 
@@ -76,7 +80,7 @@ TileGrid::TileGrid(int w, int h)
 void TileGrid::drawGrid()
 {
     // Formatting
-    cout<< endl;
+    cout << "Draw GUI started" << endl;
 
     // Loop through the grid
     for(int y = 0; y < height; y++)
@@ -103,13 +107,16 @@ void TileGrid::drawGrid()
     }
 }
 
-void TileGrid::drawGUI()
+bool TileGrid::drawGUI()
 {
+
+    //cout << "Draw GUI start" << endl;
     window->clear();
     window->begin();
 
 
 
+    //cout << "Window begin" << endl;
     titleBox = new Fl_Box (50, 50, 300, 300, "2049");
     titleBox->box (FL_UP_BOX);
     titleBox->align(FL_ALIGN_TOP);
@@ -120,18 +127,23 @@ void TileGrid::drawGUI()
     gridBox = new Fl_Box (50, 50, gridImage->w(), gridImage->h(), "");
     gridBox->image(gridImage);
 
-    upButton = new Fl_Button( 400, 80, 40, 40, "UP" );
+    upButton = new Fl_Button( 460, 100, 60, 40, "UP" );
     upButton->callback(( Fl_Callback* ) upButton_callback, this);
-    downButton = new Fl_Button( 400, 120, 40, 40, "DOWN" );
+    downButton = new Fl_Button( 460, 140, 60, 40, "DOWN" );
     downButton->callback(( Fl_Callback* ) downButton_callback, this);
-    leftButton = new Fl_Button( 360, 100, 40, 40, "LEFT" );
+    leftButton = new Fl_Button( 400, 120, 60, 40, "LEFT" );
     leftButton->callback(( Fl_Callback* ) leftButton_callback, this);
-    rightButton = new Fl_Button( 440, 100, 40, 40, "RIGHT" );
+    rightButton = new Fl_Button( 520, 120, 60, 40, "RIGHT" );
     rightButton->callback(( Fl_Callback* ) rightButton_callback, this);
 
 
     drawTiles = new Fl_Box*[width*height];
 
+
+
+    instructionBox = new Fl_Box(375, 200, 250, 100, "Use buttons to move tiles");
+    instructionBox->align(FL_ALIGN_CENTER);
+    instructionBox->box (FL_UP_BOX);
 
     // Loop through the grid
     for(int y = 0; y < height; y++)
@@ -174,16 +186,60 @@ void TileGrid::drawGUI()
 
     window->end ();
     window->show ();
+    Fl::focus(window);
+
+    bool gameOver = false;
+    wonGame = checkForWinner();
+    if(wonGame)
+    {
+        cout<<"You Win!!!" << endl;
+        gameOver=true;
+    }
+    else if(checkIfGameOver())
+    {
+        cout<<"All tiles filled. Game Over!" << endl;
+        gameOver=true;
+    }
+    //cout << "Draw GUI done" << endl;
+    if(gameOver)
+    {
+        cout << "GUI Game Finished" << endl;
+        upButton->deactivate();
+        downButton->deactivate();
+        leftButton->deactivate();
+        rightButton->deactivate();
+        if(wonGame)
+        {
+          instructionBox->label("You Win!!!\n Close window to return to menu");
+        }
+        else
+        {
+          instructionBox->label("Game over.\n Close window to return to menu");
+        }
+        //window->do_callback();
+        //window->hide();
+
+
+    }
 
     if(guiStarted)
     {
-        Fl::redraw();
+        cout << "Window redraw" << endl;
+        if(!gameOver)
+        {
+            Fl::redraw();
+        }
     }
     else
     {
+        cout << "First window draw" << endl;
         guiStarted = true;
-        Fl::run();
+        Fl::redraw();
+        //Fl::run();
     }
+
+    cout << "GUI return - gameover: " << gameOver << endl;
+    return gameOver;
 }
 
 /**
@@ -471,6 +527,7 @@ int TileGrid::getNumActiveTiles()
 */
 NumberTile* TileGrid::getTileAtLocation(int x, int y)
 {
+    //cout << "GetTileAtLocation start" << endl;
     // Loop
     for(int i = 0; i < activeTiles; i++)
     {
@@ -480,6 +537,7 @@ NumberTile* TileGrid::getTileAtLocation(int x, int y)
             return tg[i];
         }
     }
+    //cout << "GetTileAtLocation end" << endl;
     return nullptr;
 }
 
@@ -573,14 +631,17 @@ void TileGrid::spawnRandomTile()
 
     int randX = rand() % 5;
     int randY = rand() % 5;
-    //cout <<"randYi: " << randY <<endl;
     while(getTileAtLocation(randX, randY) != nullptr)
     {
+        //cout << "reset rand" << endl;
         randX = rand() % width;
         randY = rand() % height;
     }
 
+    //cout <<"randX final: " << randX <<endl;
+    //cout <<"randY final: " << randY <<endl;
     NumberTile* newtile;
+    //cout << "newtile set" << endl;
     if(randomTile < 9)
     {
         newtile = new FreeMoveTile(randX, randY, pow(2, randomVal));
@@ -681,4 +742,60 @@ void TileGrid::rightButton_callback(Fl_Widget* obj, void* other)
     TileGrid* tg = (TileGrid*)other;
     tg->moveTilesHorizontal(1);
     tg->drawGUI();
+}
+
+/**
+    Handles end of game checks for GUI mode
+
+    @return
+*/
+void TileGrid::gameWindow_callback(Fl_Widget* obj, void* w)
+{
+    //cout << "gamewindow callback" << endl;
+    Fl_Window* window = (Fl_Window*) w;
+    //cout << "gamewindow callback 2" << endl;
+    window->hide();
+    //cout << "gamewindow callback3" << endl;
+}
+
+
+/**
+    Handles player replay checks for GUI mode
+    @param obj object callback originated from
+    @param other target of callback event
+*/
+bool TileGrid::replayCheckGUI()
+{
+    bool playAgain = true;
+    cout << "Game finished check" << endl;
+    if(wonGame)
+    {
+        playAgain =fl_ask("You won!!! Play again?");
+    }
+    else
+    {
+        playAgain =fl_ask("You lost! Play again?");
+    }
+    return(playAgain);
+}
+
+/**
+    GUI mode main loop
+*/
+bool TileGrid::runGUI()
+{
+    bool gameOver = false;
+    cout << "Start in Run GUI" << endl;
+    bool playAgain = false;
+    //while(!gameOver)
+    //{
+    gameOver = drawGUI();
+
+    cout << endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl;
+    cout << "Game finished-" << gameOver << endl;
+    Fl::wait(100000);
+    //playAgain = replayCheckGUI();
+    //Fl::wait(100000);
+    //}
+    return playAgain;
 }

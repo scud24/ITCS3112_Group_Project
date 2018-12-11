@@ -18,7 +18,7 @@
 1543452830 /home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/HorizontalMoveTile.h
 	"NumberTile.h"
 
-1543937005 source:/home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/main.cpp
+1544491910 source:/home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/main.cpp
 	<iostream>
 	"NumberTile.h"
 	"TileGrid.h"
@@ -26,7 +26,7 @@
 	"HorizontalMoveTile.h"
 	"VerticalMoveTile.h"
 
-1543934489 /home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/TileGrid.h
+1544492471 /home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/TileGrid.h
 	"NumberTile.h"
 	"FreeMoveTile.h"
 	"HorizontalMoveTile.h"
@@ -46,6 +46,7 @@
 	<FL/Fl_PNG_Image.H>
 	<FL/fl_draw.H>
 	<FL/Fl_Button.H>
+	<FL/fl_ask.H>
 
 1543452830 /home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/VerticalMoveTile.h
 	"NumberTile.h"
@@ -55,7 +56,7 @@
 	<cstdlib>
 	"NumberTile.h"
 
-1543936283 source:/home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/TileGrid.cpp
+1544492795 source:/home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/TileGrid.cpp
 	"TileGrid.h"
 
 1543858392 source:/home/user/GitHub/ITCS3112_Group_Project/2049_Group_Project/VerticalMoveTile.cpp
