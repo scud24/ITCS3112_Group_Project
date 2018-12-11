@@ -242,11 +242,6 @@ public:
     static void gameWindow_callback(Fl_Widget* obj, void*);
 
 
-    /**
-        Handles player replay checks for GUI mode
-        @return if player wants to play again
-    */
-    bool replayCheckGUI();
 
     /**
         GUI mode main loop

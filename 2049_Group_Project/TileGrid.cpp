@@ -759,25 +759,6 @@ void TileGrid::gameWindow_callback(Fl_Widget* obj, void* w)
 }
 
 
-/**
-    Handles player replay checks for GUI mode
-    @param obj object callback originated from
-    @param other target of callback event
-*/
-bool TileGrid::replayCheckGUI()
-{
-    bool playAgain = true;
-    cout << "Game finished check" << endl;
-    if(wonGame)
-    {
-        playAgain =fl_ask("You won!!! Play again?");
-    }
-    else
-    {
-        playAgain =fl_ask("You lost! Play again?");
-    }
-    return(playAgain);
-}
 
 /**
     GUI mode main loop
@@ -794,7 +775,6 @@ bool TileGrid::runGUI()
     cout << endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl<< endl;
     cout << "Game finished-" << gameOver << endl;
     Fl::wait(100000);
-    //playAgain = replayCheckGUI();
     //Fl::wait(100000);
     //}
     return playAgain;
